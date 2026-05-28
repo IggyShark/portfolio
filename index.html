@@ -4,931 +4,350 @@
   <head>
     <meta charset="UTF-8">
     <title>Портфолио</title>
-    
+    <meta property="og:title" content="Игорь Шарков">
+<meta property="og:description" content="Редактор, координатор контент-проектов">
+<meta property="og:image" content="https://lh3.googleusercontent.com/rd-d/ALs6j_HbYBeY-M7QiAerlC_8isoAM6QSNq1sCETG3GcesAFkBPqL6RCJkrUfe-GqDQZpoLyRkPDjKVEKzJqpHFofk8hB6dZ-rb2n_nOk8fXrDDsyaBRKefqpxkfzpJmiMFmXbGLRF8KI2gxBKRWTgjEVhSfsAsF0tx8NUkRISM3HcfI2DE-MPOaRQmyLSNfEjHf4E7enuededEvz0uEG4NWuQuUb-mhuHdQy5nPfRl_XlTV7CW8J7SCTfHrCoakh0KbL5W1rZwdWEZ26ujn2XBqre5xrUnUrHU3XG3xkZjTJuUSZivcspQe8jOqNfTNKw2N2HTeY1Jf5eCfzX-qeRFwUjx1POAPw32QDgsW5OFVUUSvBl2np0Vi2BnoBElmhfpSK41fZJEM_BsstWfWd8st7jOyBmtLRElsT1SuIN4WvLyoyJ2BUcGVpFFAeTjK1YX377bqneV2CkrPzxyJ84PYFl9HYEKrGRWrRFdguHYuHhCYjLq8ZsxBuwhPZxfP9plRckI28D2wipFFoYiyRLeOLpeex9veovXrQY40SNsdw1R6asBunIdaB--4oax92aUR0v-1H17zzd97hi6eOhwqEHgI5RNeb-ATkE7e94f0E1XfAtDuBPq6Qc201CEaGD6wcWjrbkksigge0S3hsoACLMO16GSCF3_9KVhYHLKD9HQlbUIFEMTJRJrtw8FKVUe2fFjDpJBaMWnnW6UIxgEm6dAZTV583IPBNQe6-kJhus5KZB4fmbnRgIT7bOqSZacwOaiL2krHsWSd56KkBsrOSTBbXfjmKLsd-7MWEUqoRcqjMnlvMlZrGHGGnhzku7oq9ILn6WhSjLWAGCBZGaCf5qDP9lcKHQ8gRf5AHa5NkgGS5nvu5KP0-VKW7EhkqqjwDZO5sDk924Uw1LVO2UfaPgr6P9HdyGDyeGHeTADyt4AgyJndmA4GVd_cLaeZbegFdtW2y9gLIQ5AItsrrEYRJioq9L7SpdP2348o58-ut1wf0IsEwqYTujEsMx6vfTkHdxZ3MtLcz693lV9gEpwke3fYNMtr_q5DLy3TgNNo6isX5ADy344lbkHUH-UodvO4108PpRQteOiFKxg_7TmblGY6dW3E=w1860-h900?auditContext=prefetch">
+<meta property="og:url" content="https://iggyshark.github.io/portfolio/"><link rel="stylesheet" href="./style.css">
 
   </head>
     
   <body>
-  <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Игорь Шарков — портфолио</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
-            background: #f4f7fa;
-            color: #1e2a3a;
-            padding: 2rem 1rem;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            background: #D42C2C;
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-
-        .header {
-            background: #D42C2C;
-            color: white;
-            padding: 3rem 2.2rem 4rem 1.8rem;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            grid-template-rows: 220px auto;
-            gap: 1rem 2rem;
-            border-radius: 24px 24px 0 0;
-        }
-
-        .name-cell {
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
-        }
-
-        .name {
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin: 0 0 0 -0.2em;
-            line-height: 1;
-        }
-
-        .name span {
-            display: block;
-            font-size: 130px;
-            line-height: 0.95;
-        }
-
-        .name span:first-child {
-            margin-top: -23px;
-        }
-
-        .name span:last-child {
-            margin-bottom: -7px;
-        }
-
-        .photo-cell {
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
-            justify-self: end;
-        }
-
-        .photo {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 14px solid white;
-            background: #cbd5e1;
-            box-sizing: content-box;
-            margin-top: -14px;
-        }
-
-        .job-cell {
-            grid-column: 1 / 2;
-            grid-row: 2 / 3;
-            align-self: end;
-        }
-
-        .job-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-            margin: 0;
-            padding: 0;
-            line-height: 1.3;
-            transform: translateY(32px);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: white;
-            margin: 0.3rem 0 0 0;
-            line-height: 1.5;
-            transform: translateY(32px);
-        }
-
-        .contacts-cell {
-            grid-column: 2 / 3;
-            grid-row: 2 / 3;
-            align-self: end;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .contacts {
-            display: flex;
-            align-items: flex-end;
-            gap: 1.2rem;
-            transform: translateY(30px);
-        }
-
-        .contacts a {
-            color: white;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-        }
-
-        .email-link {
-            font-size: 1.2rem;
-            border-bottom: 1px dotted rgba(255,255,255,0.5);
-            white-space: nowrap;
-        }
-
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            vertical-align: middle;
-        }
-
-        .contacts a:has(.social-icon) {
-            border-bottom: none;
-        }
-
-        /* ===== СЕКЦИИ И РАЗДЕЛИТЕЛИ ===== */
-        .section {
-            padding: 1rem 2.2rem 2.5rem 1.8rem;
-            background: white;
-            border-bottom: 3px solid #e2e8f0;
-        }
-        .section:first-of-type {
-            border-bottom: none;
-            padding-bottom: 1rem;
-        }
-        .section:last-of-type {
-            border-bottom: none;
-        }
-
-        .first-case {
-            padding-top: 0.5rem;
-        }
-
-        h2.section-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 0 0.96rem 0;
-            color: #D42C2C;
-            /* Красная полоска через border-left */
-            border-left: 4px solid #D42C2C;
-            padding-left: 0.75rem;
-            /* Смещаем, чтобы полоска была на границе секции */
-            margin-left: -1.8rem;
-            padding-left: 1.8rem;
-            line-height: 1.4;
-        }
-
-        h3 {
-            font-size: 1.35rem;
-            margin: 0.4rem 0 0.1rem;
-            color: #D42C2C;
-            line-height: 1.4;
-        }
-
-        .case-section h3,
-        .project-item h3 {
-            font-size: 1.5rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #2d3748;
-            margin: 0.5rem 0 0.25rem;
-            line-height: 1.55;
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        li {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            line-height: 1.5;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #1e2a3a;
-            line-height: 1.5;
-        }
-
-        .lead-text {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #1e2a3a;
-            line-height: 1.5;
-        }
-
-        .case-summary {
-            font-size: 1.2rem;
-            line-height: 1.5;
-            margin: 0.25rem 0 0.75rem;
-            color: #1e2a3a;
-        }
-
-        .case-subtitle {
-            color: #6b7280;
-            font-size: 1.2rem;
-            margin: 0 0 0.5rem;
-            line-height: 1.4;
-        }
-
-        /* ===== СЕТКА КЕЙСОВ ===== */
-        .case-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            align-items: stretch;
-        }
-
-        .case-left,
-        .case-right {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            gap: 1.5rem;
-        }
-
-        .case-left p {
-            font-size: 1.2rem;
-            margin: 0.2rem 0;
-        }
-
-        .case-left > :last-child,
-        .case-right > :last-child {
-            margin-top: auto;
-        }
-
-        .case-right > :first-child {
-            margin-top: 0.5rem;
-        }
-
-        .case-full-width {
-            margin-top: 1.5rem;
-            width: calc(100% - 3rem);
-            margin-left: 1.5rem;
-            margin-right: 1.5rem;
-            background: white;
-        }
-
-        .video-wide {
-            margin-top: 1.5rem;
-            margin-left: -5%;
-            margin-right: -5%;
-            width: 110%;
-            background: white;
-        }
-
-        /* ===== ПЛЕЙСХОЛДЕРЫ ===== */
-        .img-placeholder {
-            background: #ffffff;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .img-3-5 {
-            width: 100%;
-            aspect-ratio: 3 / 5;
-        }
-
-        .img-horizontal {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-        }
-
-        .img-vertical-full {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-        }
-
-        .img-4-5 {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-        }
-
-        .img-5-4 {
-            width: 100%;
-            aspect-ratio: 5 / 4;
-        }
-
-        .img-wide-horizontal {
-            width: 100%;
-            aspect-ratio: 14 / 3;
-        }
-
-        .case-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        /* ===== СТРОКА ДЛЯ СЛОБОДЫ ===== */
-        .case-row {
-            display: flex;
-            gap: 1.5rem;
-            align-items: start;
-            width: 100%;
-        }
-
-        .case-row > * {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .case-row .img-vertical-full {
-            flex-grow: 1.2;
-        }
-
-        .grow {
-            flex-grow: 1;
-            min-height: 0;
-            aspect-ratio: unset;
-        }
-
-        /* ===== ПОСАДОЧНЫЕ СТРАНИЦЫ ===== */
-        .portfolio-section {
-            padding: 1rem 2.2rem 2.5rem 1.8rem;
-            background: white;
-            border-bottom: none;
-        }
-
-        .images-grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            margin: 1.5rem -2.2rem 0 -1.8rem;
-        }
-
-        .project-item {
-            display: flex;
-            flex-direction: column;
-            border-right: 3px solid #e2e8f0;
-            border-bottom: 3px solid #e2e8f0;
-            padding: 1.5rem 2.2rem 1.5rem 1.8rem;
-        }
-
-        .project-item:nth-child(2n) {
-            border-right: none;
-            padding-left: 1.62rem;
-        }
-
-        .project-item h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .placeholder-vertical {
-            width: 100%;
-            aspect-ratio: 2 / 3;
-            background: #ffffff;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ===== ЛОГОТИПЫ ===== */
-        .logo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .logo-placeholder {
-            width: 80px;
-            height: 80px;
-            background: #e2e8f0;
-            border-radius: 12px;
-        }
-
-        /* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
-        @media (max-width: 750px) {
-            .header {
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                padding-bottom: 2rem;
-                padding-left: 1rem;
-                padding-right: 1.5rem;
-            }
-            .photo-cell {
-                display: flex;
-                justify-content: center;
-                margin-top: 2rem;
-                margin-bottom: 2rem;
-            }
-            .contacts {
-                justify-content: center;
-            }
-            .name {
-                height: auto;
-                display: block;
-                text-align: center;
-                margin-left: 0;
-            }
-            .name span {
-                font-size: 3.5rem;
-                line-height: 1.2;
-            }
-            .job-cell {
-                align-self: auto;
-            }
-            .contacts-cell {
-                align-self: auto;
-                margin-top: 1.5rem;
-            }
-            .tagline,
-            .job-title {
-                transform: none;
-                margin-left: 0;
-            }
-            .job-title {
-                margin-bottom: 1rem;
-            }
-            .contacts {
-                flex-wrap: wrap;
-                justify-content: center;
-                transform: none;
-            }
-            .email-link {
-                display: block;
-                width: fit-content;
-                margin: 0.2rem auto 0;
-                border-bottom: 1px dotted rgba(255,255,255,0.5);
-                text-align: center;
-            }
-            .social-icon {
-                width: 64px;
-                height: 64px;
-            }
-            .case-right > :first-child {
-                margin-top: 0;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .section {
-                padding: 1rem 1.3rem 1.5rem 1rem;
-            }
-
-            .header {
-                grid-template-rows: auto auto;
-            }
-            .photo {
-                margin-top: 0;
-            }
-            .contacts {
-                transform: none;
-                align-items: center;
-            }
-
-            h2.section-title {
-                margin-left: -1rem;   /* подгонка под мобильный отступ */
-                padding-left: 1rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .case-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .case-left,
-            .case-right {
-                height: auto;
-                gap: 1rem;
-            }
-
-            .case-left > :last-child,
-            .case-right > :last-child {
-                margin-top: 0;
-            }
-            .case-right > :first-child {
-                margin-top: 0;
-            }
-
-            .case-row {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .case-row .img-placeholder {
-                aspect-ratio: auto;
-                height: auto;
-                overflow: visible;
-            }
-            .case-row .case-img {
-                object-fit: contain;
-                width: 100%;
-                height: auto;
-            }
-
-            .video-wide {
-                width: 100%;
-                margin: 1rem 0 0;
-            }
-            .video-wide .img-wide-horizontal {
-                aspect-ratio: 16 / 6;
-            }
-
-            .case-left .img-horizontal.grow {
-                aspect-ratio: auto;
-                height: auto;
-                object-fit: contain;
-            }
-
-            .grow {
-                aspect-ratio: 2 / 3;
-                flex-grow: 0;
-                height: auto;
-            }
-            .medical .img-vertical-full iframe {
-                aspect-ratio: 2 / 3;
-                height: auto;
-            }
-
-            .images-grid-2col {
-                grid-template-columns: 1fr;
-                margin: 1.5rem -1.3rem 0 -1rem;
-            }
-            .project-item {
-                padding: 1.5rem 1.3rem 1.5rem 1rem;
-                border-right: none;
-            }
-            .project-item:nth-child(2n) {
-                padding-left: 1.3rem;
-            }
-
-            .case-subtitle {
-                margin-bottom: 1rem;
-            }
-
-            .footer {
-                text-align: center;
-                padding: 2rem 1.5rem 2.5rem;
-            }
-            .footer-title {
-                text-align: center;
-            }
-            .footer-contacts {
-                justify-content: center;
-                align-items: center;
-            }
-            .footer-logos {
-                justify-content: center;
-                margin: 0.5rem 0 0.1rem;
-            }
-        }
-
-        /* ===== ПОДВАЛ ===== */
-        .footer {
-            background: #D42C2C;
-            color: white;
-            padding: 2rem 2.2rem 4rem 1.8rem;
-            text-align: left;
-            border-radius: 0 0 24px 24px;
-        }
-
-        .footer-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 0 1rem;
-            line-height: 1.2;
-        }
-
-        .footer-contacts {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-logos {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: flex-start;
-        }
-
-        .footer-logos .social-icon {
-            width: 64px;
-            height: 64px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Сюда вставьте весь ваш HTML-код страницы (от container до /container) -->
-    <div class="container">
-      <div class="header">
-        <div class="name-cell">
-          <h1 class="name">
-            <span>ИГОРЬ</span>
-            <span>ШАРКОВ</span>
-          </h1>
-        </div>
-        <div class="photo-cell">
-          <img class="photo" src="https://lh3.googleusercontent.com/rd-d/ALs6j_HbYBeY-M7QiAerlC_8isoAM6QSNq1sCETG3GcesAFkBPqL6RCJkrUfe-GqDQZpoLyRkPDjKVEKzJqpHFofk8hB6dZ-rb2n_nOk8fXrDDsyaBRKefqpxkfzpJmiMFmXbGLRF8KI2gxBKRWTgjEVhSfsAsF0tx8NUkRISM3HcfI2DE-MPOaRQmyLSNfEjHf4E7enuededEvz0uEG4NWuQuUb-mhuHdQy5nPfRl_XlTV7CW8J7SCTfHrCoakh0KbL5W1rZwdWEZ26ujn2XBqre5xrUnUrHU3XG3xkZjTJuUSZivcspQe8jOqNfTNKw2N2HTeY1Jf5eCfzX-qeRFwUjx1POAPw32QDgsW5OFVUUSvBl2np0Vi2BnoBElmhfpSK41fZJEM_BsstWfWd8st7jOyBmtLRElsT1SuIN4WvLyoyJ2BUcGVpFFAeTjK1YX377bqneV2CkrPzxyJ84PYFl9HYEKrGRWrRFdguHYuHhCYjLq8ZsxBuwhPZxfP9plRckI28D2wipFFoYiyRLeOLpeex9veovXrQY40SNsdw1R6asBunIdaB--4oax92aUR0v-1H17zzd97hi6eOhwqEHgI5RNeb-ATkE7e94f0E1XfAtDuBPq6Qc201CEaGD6wcWjrbkksigge0S3hsoACLMO16GSCF3_9KVhYHLKD9HQlbUIFEMTJRJrtw8FKVUe2fFjDpJBaMWnnW6UIxgEm6dAZTV583IPBNQe6-kJhus5KZB4fmbnRgIT7bOqSZacwOaiL2krHsWSd56KkBsrOSTBbXfjmKLsd-7MWEUqoRcqjMnlvMlZrGHGGnhzku7oq9ILn6WhSjLWAGCBZGaCf5qDP9lcKHQ8gRf5AHa5NkgGS5nvu5KP0-VKW7EhkqqjwDZO5sDk924Uw1LVO2UfaPgr6P9HdyGDyeGHeTADyt4AgyJndmA4GVd_cLaeZbegFdtW2y9gLIQ5AItsrrEYRJioq9L7SpdP2348o58-ut1wf0IsEwqYTujEsMx6vfTkHdxZ3MtLcz693lV9gEpwke3fYNMtr_q5DLy3TgNNo6isX5ADy344lbkHUH-UodvO4108PpRQteOiFKxg_7TmblGY6dW3E=w1860-h900?auditContext=prefetch" alt="Фотография Игоря">
-        </div>
-        <div class="job-cell"> 
-          <h2 class="job-title">Редактор, координатор контент-проектов</h2>
-          <p class="tagline">Помогаю наводить порядок в текстах и коммуникациях</p>
-        </div>
-        <div class="contacts-cell">
-          <div class="contacts">
-            <a href="https://vk.ru/iggy.shark" target="_blank">
-              <img src="https://i127.fastpic.org/big/2026/0507/55/b06b39a41d7c07164c2356ab1e3fb455.png" alt="ВК" class="social-icon">
-            </a>
-            <a href="https://max.ru/u/f9LHodD0cOLpbvPH5vnnnF8CIk5_8Z6ITbUhuc730jVVVVSIxFM38VOXPZM" target="_blank">
-              <img src="https://i127.fastpic.org/big/2026/0507/67/b83cbb47f6dbafb6647f2f5cd5516d67.png" alt="Мах" class="social-icon">
-            </a>
-            <a href="mailto:iggy@lenta.ru" class="email-link">✉️ iggy@lenta.ru</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <section class="section">
-          <h2 class="section-title">Запускал кампании в соцсетях</h2>
-          <p class="intro-text"><strong>Вёл сообщества и каналы</strong> Слободы, Металлоинвеста и других организаций.</p>
-          <ul>
-            <li><strong>Выстраивал систему</strong>. Прописывал планы публикаций, планы продвижения и должностные инструкции.</li>
-            <li><strong>Управлял командой</strong> копирайтеров, дизайнеров, таргетологов и менеджеров по коммуникациям.</li>
-            <li><strong>Писал и редактировал</strong> тексты: посты, статьи, комментарии, отзывы, деловые письма и презентации.</li>
-            <li><strong>Договаривался с экспертами</strong>. Находил их, брал интервью и делал из них посты, статьи, сценарии.</li>
-            <li><strong>Договаривался с рекламными площадками</strong>. Подбирал каналы и блогеров, контролировал выходы публикаций и расходы.</li>
-            <li><strong>Договаривался с клиентами</strong>. Предлагал решения, согласовывал контент, показывал результат и защищал позицию команды.</li>
-            <li><strong>Анализировал</strong> статистику сообществ, аудиторию брендов, их конкурентов и инфополе.</li>
-            <li><strong>Следил за показателями. Собирал отчёты</strong> с графиками и выводами.</li>
-          </ul>
-        </section>
-
-        <!-- Кейс: Слобода -->
-        <section class="section case-section first-case">
-          <h3>Слобода</h3>
-          <p class="case-summary"><strong>Помог бренду увеличить аудиторию и выстроить с ней доверительное общение</strong>.</p>
-          <div class="case-grid">
-            <div class="case-left">
-              <p><strong>Перестроил контент-стратегию</strong> с «журнала о кулинарии» на «журнал обо всём полезном».
-               <br> <strong>Запустил новые каналы продвижения</strong>: Телеграм-канал, экспертную рубрику, видеопроизводство, интеграции с блогерами на 5 миллионов рублей и творческие конкурсы на десятки тысяч участников.</p>
-              <div class="img-placeholder img-horizontal">
-                <img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fbd1d6bsloboda_2.jpg" alt="Горизонтальная 1" class="case-img">
-              </div>
-              <div class="img-placeholder img-horizontal">
-                <img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fdb2ee6sloboda_7.jpg" alt="Горизонтальная 2" class="case-img">
-              </div>
-              <div class="case-row">
-                <div class="img-placeholder img-4-5">
-                  <img src="https://i127.fastpic.org/big/2026/0525/5a/991665ac174d8b85883cd4cd53d8925a.png" alt="Эксперт" class="case-img">
-                </div>
-                <div class="img-placeholder img-vertical-full">
-                  <img src="https://i127.fastpic.org/big/2026/0525/34/a7936a5bc3455437093c9552d90b3134.png" alt="Посев" class="case-img">
-                </div>
-              </div>
-            </div>
-            <div class="case-right">
-              <div class="img-placeholder img-vertical-full grow">
-                <iframe 
-                    src="https://drive.google.com/file/d/1Wo7e7_PhIBdPgOfdHIebxZas8_KA0cqK/preview"
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; border-radius:8px;" 
-                    allow="autoplay; fullscreen" 
-                    allowfullscreen>
-                </iframe>
-              </div>
-              <div class="img-placeholder img-horizontal">
-                <img src="https://i127.fastpic.org/big/2026/0521/c9/0460f7cc822da1ffe3bc4c404494b2c9.png" alt="Горизонтальная 3" class="case-img">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Кейс: Металлоинвест -->
-        <section class="section case-section">
-          <h3>Металлоинвест</h3>
-          <p class="case-summary"><strong>Укрепил репутацию металлургических комбинатов</strong> в Курской и Белгородской областях. Повысил их узнаваемость как работодателей и как объектов туризма.</p>
-          <div class="case-grid">
-            <div class="case-left">
-              <p><strong>Запустил рекламные кампании</strong> про найм и промтуризм.
-                <br><strong>Запустил чат-бот</strong> «Металлический Гороскоп».
-                <br><strong>Отладил мониторинг упоминаний бренда</strong> и отработки негатива.</p>
-              <div class="img-placeholder img-horizontal">
-                <video
-                  width="100%"
-                  height="100%"
-                  controls
-                  muted
-                  loop
-                  playsinline
-                  style="border-radius: 8px; object-fit: cover;"
-                >
-                  <source
-                    src="https://radar-online.ru/cockpit/storage/uploads/2026/04/09/69d76cde50e73goroskop-animation.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-              <div class="img-placeholder img-horizontal" style="margin-top: auto; margin-bottom: auto;">
-                <img src="https://i127.fastpic.org/big/2026/0525/9b/45db5f6ced40c67bc61502aaf9e38b9b.png" alt="Горизонтальная 1" class="case-img" />
-              </div>
-            </div>
-            <div class="case-right">
-              <div class="img-placeholder img-3-5">
-                <img src="https://i127.fastpic.org/big/2026/0525/dd/d72cb428a00d044edee2dc260743b4dd.png" alt="Вертикальная" class="case-img">
-              </div>
-            </div>
-          </div>
-          <div class="case-full-width video-wide">
-            <div class="img-placeholder img-wide-horizontal">
-              <iframe src="https://radar-online.ru/cockpit/storage/uploads/2026/04/14/69de19f92dec7kv-animation_2.mp4" style="border:0; width:100%; height:100%;" allowfullscreen></iframe>
-            </div>
-          </div>
-        </section>
-
-        <!-- Кейс: Центр Семейной Медицины -->
-        <section class="section case-section medical">
-          <h3>Центр Семейной Медицины</h3>
-          <p class="case-subtitle">клиника репродуктивного здоровья, Екатеринбург</p>
-          <p class="case-summary"><strong>Упростил привлечение пациентов через экспертный контент</strong>.</p>
-          <div class="case-grid">
-            <div class="case-left">
-              <p><strong>Взял проект, когда работа превращалась в хаос</strong>: материалы от экспертов терялись, копирайтеры не знали что и когда писать, посты не выходили в срок, сообщества не росли.<br><strong>Привёл всё в порядок</strong>, выстроил конвейер выхода постов.</p>
-              <div class="img-placeholder img-horizontal">
-                <img src="https://i127.fastpic.org/big/2026/0525/b6/59d5b566bead75b1bcb0c123923749b6.png" alt="Горизонтальная 1" class="case-img">
-              </div>
-              <div class="img-placeholder img-horizontal">
-                <img src="https://i127.fastpic.org/big/2026/0525/50/245e2b7e661ae2052cdf0bc846113350.png" alt="Горизонтальная 2" class="case-img">
-              </div>
-            </div>
-            <div class="case-right">
-              <div class="img-placeholder img-vertical-full">
-                <iframe 
-                    src="https://drive.google.com/file/d/1yVBT_f-jEn21Rrfa1kbdu4Coha2gbMi1/preview"
-                    width="100%" 
-                    height="100%" 
-                    style="border:0; border-radius:8px;" 
-                    allow="autoplay; fullscreen" 
-                    allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Кейс: Оптик-Центр -->
-        <section class="section case-section">
-          <h3>Оптик-Центр</h3>
-          <p class="case-subtitle">офтальмологическая клиника и сеть салонов оптики, Челябинск</p>
-          <p class="case-summary"><strong>Помог гендиректору выстроить личный бренд</strong> и увеличить узнаваемость в регионе.</p>
-          <div class="case-grid">
-            <div class="case-left">
-              <p><strong>Запустил рубрики</strong> про здоровье, моду и бизнес, ввёл словарь офтальмологических терминов.</p>
-              <div class="img-placeholder img-vertical-full">
-                <img src="https://i127.fastpic.org/big/2026/0525/47/03b4a830a753b4ed81daad20a2323747.png" alt="Вертикальная 1" class="case-img">
-              </div>
-              <div class="img-placeholder img-horizontal grow">
-                <img src="https://i127.fastpic.org/big/2026/0525/56/64bb286c3c63ee71dc204a1247b68c56.png" alt="Горизонтальная 1" class="case-img">
-              </div>
-            </div>
-            <div class="case-right">
-              <div class="img-placeholder img-5-4" style="margin-top: 0.88rem;">
-                <img src="https://i127.fastpic.org/big/2026/0525/49/ef780b1b5f1c5ae8456d0f9bde3d7049.png" alt="Новая верхняя" class="case-img">
-              </div>
-              <div class="img-placeholder img-vertical-full">
-                <img src="https://i127.fastpic.org/big/2026/0525/ef/5fe9daa9debbbdbd37a0d63efd83cdef.png" alt="Вертикальная 2" class="case-img">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Делал посадочные страницы и презентации -->
-        <section class="section portfolio-section">
-          <h2 class="section-title">Делал посадочные страницы и презентации</h2>
-          <p class="lead-text"><strong>Упаковывал торговые предложения брендов</strong> в продающие материалы.</p>
-          <ul>
-            <li><strong>Писал текстовую структуру и верстал прототипы</strong> сайтов, презентаций и печатных изданий.</li>
-            <li><strong>Ставил ТЗ</strong> дизайнерам и верстальщикам.</li>
-            <li><strong>Писал статьи</strong> для продвижения сайтов.</li>
-            <li><strong>Общался с рекламными площадками</strong>: сообществами, каналами, газетами. Подбирал площадки, контролировал выходы публикаций и расходы.</li>
-            <li><strong>Общался с клиентами</strong>. Проводил интервью, согласовывал контент и защищал позицию команды.</li>
-          </ul>
-
-          <div class="images-grid-2col">
-            <div class="project-item">
-              <h3>Выставка Министерства туризма<br>Краснодарского края</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img">
-              </div>
-            </div>
-            <div class="project-item">
-              <h3>Сервис помощи автовладельцам<br>«Мобил-Ассистанс»</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img">
-              </div>
-            </div>
-            <div class="project-item">
-              <h3>Ремонт топливной аппаратуры<br>«БелАвтоДизель»</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img">
-              </div>
-            </div>
-            <div class="project-item">
-              <h3>Система управления гостиничным бизнесом «1С:Отель»</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img">
-              </div>
-            </div>
-            <div class="project-item">
-              <h3>Программа финансирования бизнеса<br>«Фрэш Капитал»</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img">
-              </div>
-            </div>
-            <div class="project-item">
-              <h3>Криптовалютный фонд<br>«КриптоТрэйдингФанд»</h3>
-              <div class="img-placeholder placeholder-vertical">
-                <img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img">
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- С какими проектами ещё работал -->
-        <section class="section">
-          <h2 class="section-title">С какими проектами ещё работал</h2>
-          <p class="place">Далеки от идеала, поэтому не показываю. Показываю с кем работал, чтобы у вас сложилось понимание — у меня есть понимание этих сфер.</p>
-          <div class="logo-grid">
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-            <div class="logo-placeholder"></div>
-          </div>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Где учился</h2>
-          <ul>
-            <li><strong>Школа редакторов</strong>, Бюро Горбунова — 2026</li>
-            <li><strong>Веб-дизайн на Фигме</strong>, Скиллбокс — 2022</li>
-            <li><strong>Копирайтинг для лендингов</strong>, Агентство Продающих Текстов — 2020</li>
-            <li><strong>Контент-маркетинг</strong>, Нетология — 2016</li>
-            <li><strong>Факультет политологии</strong>, МГУ имени Ломоносова — 2014</li>
-          </ul>
-        </section>
-
-        <section class="section">
-          <h2 class="section-title">Что люблю</h2>
-          <ul>
-            <li><strong>слушаю</strong> музыку — от синтипопа и дарк-фолка до эмокора и ска-панка</li>
-            <li><strong>читаю</strong> художественную литературу и публицистику — особенно 20-30-х годов XX века</li>
-            <li><strong>изучаю</strong> политику, историю, архитектуру, скульптуру, живопись, графику</li>
-            <li><strong>путешествую</strong> по России</li>
-          </ul>
-        </section>
-      </div>
-
-      <div class="footer">
-        <h2 class="footer-title">Обсудим, чем я могу вам помочь</h2>
-        <div class="contacts footer-contacts">
-          <div class="footer-logos">
-            <a href="https://vk.ru/iggy.shark" target="_blank">
-              <img src="https://i127.fastpic.org/big/2026/0507/55/b06b39a41d7c07164c2356ab1e3fb455.png" alt="ВК" class="social-icon">
-            </a>
-            <a href="https://max.ru/u/f9LHodD0cOLpbvPH5vnnnF8CIk5_8Z6ITbUhuc730jVVVVSIxFM38VOXPZM" target="_blank">
-              <img src="https://i127.fastpic.org/big/2026/0507/67/b83cbb47f6dbafb6647f2f5cd5516d67.png" alt="Мах" class="social-icon">
-            </a>
-          </div>
-          <a href="mailto:iggy@lenta.ru" class="email-link">✉️ iggy@lenta.ru</a>
-        </div>
+  <div class="container">
+  <div class="header">
+    <div class="name-cell">
+      <h1 class="name">
+        <span>ИГОРЬ</span>
+        <span>ШАРКОВ</span>
+      </h1>
+    </div>
+    <div class="photo-cell">
+      <img class="photo" src="https://lh3.googleusercontent.com/rd-d/ALs6j_HbYBeY-M7QiAerlC_8isoAM6QSNq1sCETG3GcesAFkBPqL6RCJkrUfe-GqDQZpoLyRkPDjKVEKzJqpHFofk8hB6dZ-rb2n_nOk8fXrDDsyaBRKefqpxkfzpJmiMFmXbGLRF8KI2gxBKRWTgjEVhSfsAsF0tx8NUkRISM3HcfI2DE-MPOaRQmyLSNfEjHf4E7enuededEvz0uEG4NWuQuUb-mhuHdQy5nPfRl_XlTV7CW8J7SCTfHrCoakh0KbL5W1rZwdWEZ26ujn2XBqre5xrUnUrHU3XG3xkZjTJuUSZivcspQe8jOqNfTNKw2N2HTeY1Jf5eCfzX-qeRFwUjx1POAPw32QDgsW5OFVUUSvBl2np0Vi2BnoBElmhfpSK41fZJEM_BsstWfWd8st7jOyBmtLRElsT1SuIN4WvLyoyJ2BUcGVpFFAeTjK1YX377bqneV2CkrPzxyJ84PYFl9HYEKrGRWrRFdguHYuHhCYjLq8ZsxBuwhPZxfP9plRckI28D2wipFFoYiyRLeOLpeex9veovXrQY40SNsdw1R6asBunIdaB--4oax92aUR0v-1H17zzd97hi6eOhwqEHgI5RNeb-ATkE7e94f0E1XfAtDuBPq6Qc201CEaGD6wcWjrbkksigge0S3hsoACLMO16GSCF3_9KVhYHLKD9HQlbUIFEMTJRJrtw8FKVUe2fFjDpJBaMWnnW6UIxgEm6dAZTV583IPBNQe6-kJhus5KZB4fmbnRgIT7bOqSZacwOaiL2krHsWSd56KkBsrOSTBbXfjmKLsd-7MWEUqoRcqjMnlvMlZrGHGGnhzku7oq9ILn6WhSjLWAGCBZGaCf5qDP9lcKHQ8gRf5AHa5NkgGS5nvu5KP0-VKW7EhkqqjwDZO5sDk924Uw1LVO2UfaPgr6P9HdyGDyeGHeTADyt4AgyJndmA4GVd_cLaeZbegFdtW2y9gLIQ5AItsrrEYRJioq9L7SpdP2348o58-ut1wf0IsEwqYTujEsMx6vfTkHdxZ3MtLcz693lV9gEpwke3fYNMtr_q5DLy3TgNNo6isX5ADy344lbkHUH-UodvO4108PpRQteOiFKxg_7TmblGY6dW3E=w1860-h900?auditContext=prefetch" alt="Фотография Игоря">
+    </div>
+    <div class="job-cell"> 
+      <h2 class="job-title">Редактор, координатор контент-проектов</h2>
+      <p class="tagline">Помогаю наводить порядок в&nbsp;текстах и&nbsp;коммуникациях</p>
+    </div>
+    <div class="contacts-cell">
+      <div class="contacts">
+        <a href="https://vk.ru/iggy.shark" target="_blank">
+          <img src="https://i127.fastpic.org/big/2026/0507/55/b06b39a41d7c07164c2356ab1e3fb455.png" alt="ВК" class="social-icon">
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOLpbvPH5vnnnF8CIk5_8Z6ITbUhuc730jVVVVSIxFM38VOXPZM" target="_blank">
+          <img src="https://i127.fastpic.org/big/2026/0507/67/b83cbb47f6dbafb6647f2f5cd5516d67.png" alt="Мах" class="social-icon">
+        </a>
+        <a href="mailto:iggy@lenta.ru" class="email-link">✉️ iggy@lenta.ru</a>
       </div>
     </div>
-</body>
-</html>
+  </div>
+
+  <div class="content">
+    <section class="section">
+      <h2 class="section-title">Запускал кампании в&nbsp;соцсетях</h2>
+      <p class="intro-text"><strong>Вёл сообщества и&nbsp;каналы</strong> Слободы, Металлоинвеста и&nbsp;других организаций.</p>
+      
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">⚙️</span> <span class="feature-text"><strong>Выстраивал систему</strong>. Прописывал планы публикаций, планы продвижения и&nbsp;должностные инструкции.</span></div>
+        <div class="feature-item"><span class="feature-icon">🎤</span> <span class="feature-text"><strong>Договаривался с&nbsp;экспертами</strong>. Находил&nbsp;их, брал интервью и&nbsp;делал из&nbsp;них посты, статьи, сценарии.</span></div>
+        <div class="feature-item"><span class="feature-icon">👥</span> <span class="feature-text"><strong>Управлял командой</strong> копирайтеров, дизайнеров, таргетологов и&nbsp;менеджеров по&nbsp;коммуникациям.</span></div>
+        <div class="feature-item"><span class="feature-icon">📢</span> <span class="feature-text"><strong>Договаривался с&nbsp;рекламными площадками</strong>. Подбирал каналы и&nbsp;блогеров, контролировал выходы публикаций и&nbsp;расходы.</span></div>
+        <div class="feature-item"><span class="feature-icon">✍️</span> <span class="feature-text"><strong>Писал и&nbsp;редактировал</strong> тексты: посты, статьи, комментарии, отзывы, деловые письма и&nbsp;презентации.</span></div>
+        <div class="feature-item"><span class="feature-icon">🤝</span> <span class="feature-text"><strong>Договаривался с&nbsp;клиентами</strong>. Предлагал решения, согласовывал контент, показывал результат и&nbsp;защищал позицию команды.</span></div>
+        <div class="feature-item"><span class="feature-icon">📊</span> <span class="feature-text"><strong>Анализировал</strong> статистику сообществ, аудиторию брендов, их&nbsp;конкурентов и&nbsp;инфополе.</span></div>
+        <div class="feature-item"><span class="feature-icon">📈</span> <span class="feature-text"><strong>Следил за&nbsp;показателями. Собирал отчёты</strong> с&nbsp;графиками и&nbsp;выводами.</span></div>
+      </div>
+    </section>
+
+    <!-- Кейс: Слобода -->
+    <section class="section case-section first-case">
+      <h3><a href="https://vk.com/sloboda_russia" target="_blank" class="case-heading-link">Слобода</a></h3>
+      <p class="case-summary"><strong>Помог бренду увеличить аудиторию и&nbsp;выстроить с&nbsp;ней доверительное общение</strong>.</p>
+      <div class="case-grid">
+        <div class="case-left">
+          <p><strong>Перестроил контент-стратегию</strong> с&nbsp;«журнала о&nbsp;кулинарии» на&nbsp;«журнал обо&nbsp;всём полезном».
+           <br> <strong>Запустил новые каналы продвижения</strong>: Телеграм-канал, экспертную рубрику, видеопроизводство, интеграции с&nbsp;блогерами на&nbsp;5&nbsp;миллионов рублей и&nbsp;творческие конкурсы на&nbsp;десятки тысяч участников.</p>
+          <div class="img-placeholder img-horizontal">
+            <a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fbd1d6bsloboda_2.jpg" alt="Горизонтальная 1" class="case-img"></a>
+          </div>
+          <div class="img-placeholder img-horizontal">
+            <a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fdb2ee6sloboda_7.jpg" alt="Горизонтальная 2" class="case-img"></a>
+          </div>
+          <div class="case-row">
+            <div class="img-placeholder img-4-5">
+              <a href="https://t.me/sloboda_russia" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/5a/991665ac174d8b85883cd4cd53d8925a.png" alt="Эксперт" class="case-img"></a>
+            </div>
+            <div class="img-placeholder img-vertical-full">
+              <a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f78abcbe584a35211ddb98d08784a3c1.png"  alt="Посев" class="case-img"></a>
+            </div>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="img-placeholder img-vertical-full grow">
+            <iframe 
+                src="https://drive.google.com/file/d/1Wo7e7_PhIBdPgOfdHIebxZas8_KA0cqK/preview"
+                width="100%" 
+                height="100%" 
+                style="border:0; border-radius:8px;" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+          </div>
+          <div class="img-placeholder img-horizontal">
+            <img src="https://i127.fastpic.org/big/2026/0521/c9/0460f7cc822da1ffe3bc4c404494b2c9.png" alt="Горизонтальная 3" class="case-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кейс: Металлоинвест -->
+    <section class="section case-section">
+      <h3><a href="https://vk.com/metalloinvest" target="_blank" class="case-heading-link">Металлоинвест</a></h3>
+      <p class="case-summary"><strong>Укрепил репутацию металлургических комбинатов</strong> в&nbsp;Курской и&nbsp;Белгородской областях. Повысил их&nbsp;узнаваемость как работодателей и&nbsp;как объектов туризма.</p>
+      <div class="case-grid">
+        <div class="case-left">
+          <p><strong>Запустил рекламные кампании</strong> про найм и&nbsp;промтуризм.
+            <br><strong>Запустил чат-бот</strong> «Металлический Гороскоп».
+            <br><strong>Отладил мониторинг упоминаний бренда</strong> и&nbsp;отработки негатива.</p>
+          <div class="img-placeholder img-horizontal">
+            <video
+              width="100%"
+              height="100%"
+              controls
+              muted
+              loop
+              playsinline
+              style="border-radius: 8px; object-fit: cover;"
+            >
+              <source
+                src="https://radar-online.ru/cockpit/storage/uploads/2026/04/09/69d76cde50e73goroskop-animation.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div class="img-placeholder img-horizontal" style="margin-top: auto; margin-bottom: auto;">
+            <img src="https://i127.fastpic.org/big/2026/0525/9b/45db5f6ced40c67bc61502aaf9e38b9b.png" alt="Горизонтальная 1" class="case-img" />
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="img-placeholder img-3-5">
+            <a href="https://radar-online.ru/all-works/MetalloinvestSMM" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/21cd1978f5b9122a0ce38e93c99a0d7d.png" alt="Вертикальная" class="case-img"></a>
+          </div>
+        </div>
+      </div>
+      <div class="case-full-width video-wide">
+        <div class="img-placeholder img-wide-horizontal">
+          <iframe src="https://radar-online.ru/cockpit/storage/uploads/2026/04/14/69de19f92dec7kv-animation_2.mp4" style="border:0; width:100%; height:100%;" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кейс: Центр Семейной Медицины -->
+    <section class="section case-section medical">
+      <h3><a href="https://vk.com/cfm.ekat" target="_blank" class="case-heading-link">Центр Семейной Медицины</a></h3>
+      <p class="case-subtitle">клиника репродуктивного здоровья, Екатеринбург</p>
+      <p class="case-summary"><strong>Упростил привлечение пациентов через экспертный контент</strong>.</p>
+      <div class="case-grid">
+        <div class="case-left">
+          <p><strong>Взял проект, когда работа превращалась в&nbsp;хаос</strong>: материалы от&nbsp;экспертов терялись, копирайтеры не&nbsp;знали что и&nbsp;когда писать, посты не&nbsp;выходили в&nbsp;срок, сообщества не&nbsp;росли.<br><strong>Привёл всё в&nbsp;порядок</strong>, выстроил конвейер выхода постов.</p>
+          <div class="img-placeholder img-horizontal">
+            <a href="https://radar-online.ru/all-works/csmSmm" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/b6/59d5b566bead75b1bcb0c123923749b6.png" alt="Горизонтальная 1" class="case-img"></a>
+          </div>
+          <div class="img-placeholder img-horizontal">
+            <a href="https://radar-online.ru/all-works/csmSmm" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/50/245e2b7e661ae2052cdf0bc846113350.png" alt="Горизонтальная 2" class="case-img"></a>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="img-placeholder img-vertical-full">
+            <iframe 
+                src="https://drive.google.com/file/d/1yVBT_f-jEn21Rrfa1kbdu4Coha2gbMi1/preview"
+                width="100%" 
+                height="100%" 
+                style="border:0; border-radius:8px;" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кейс: Оптик-Центр -->
+    <section class="section case-section">
+      <h3><a href="https://vk.com/vlasenko.artem" target="_blank" class="case-heading-link">Оптик-Центр</a></h3>
+      <p class="case-subtitle">офтальмологическая клиника и&nbsp;сеть салонов оптики, Челябинск</p>
+      <p class="case-summary"><strong>Помог гендиректору выстроить личный бренд</strong> и&nbsp;увеличить узнаваемость в&nbsp;регионе.</p>
+      <div class="case-grid">
+        <div class="case-left">
+          <p><strong>Запустил рубрики</strong> про здоровье, моду и&nbsp;бизнес, ввёл словарь офтальмологических терминов.</p>
+          <div class="img-placeholder img-vertical-full">
+            <a href="https://vk.com/vlasenko.artem" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/fbdf9f43816db4f7729f894ede036b61.png" alt="Вертикальная 1" class="case-img"></a>
+          </div>
+          <div class="img-placeholder img-horizontal grow">
+            <a href="https://vk.com/vlasenko.artem" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/2451e0314f3da9537ebf1488d42b86c2.png" alt="Горизонтальная 1" class="case-img"></a>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="img-placeholder img-5-4" style="margin-top: 0.88rem;">
+            <a href="https://vk.com/vlasenko.artem" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/54322c1131744110701c65aa22174b3a.png" alt="Новая верхняя" class="case-img"></a>
+          </div>
+          <div class="img-placeholder img-vertical-full">
+            <a href="https://vk.com/vlasenko.artem" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/d16f6c8703b910eb51f6bb6df4a47588.png" alt="Вертикальная 2" class="case-img"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Делал посадочные страницы и презентации -->
+    <section class="section portfolio-section">
+      <h2 class="section-title">Делал посадочные страницы и&nbsp;презентации</h2>
+      <p class="lead-text"><strong>Упаковывал торговые предложения брендов</strong> в&nbsp;продающие материалы.</p>
+      <div class="two-col-list">
+        <div class="list-col">
+          <div class="feature-item"><span class="feature-icon">✍️</span> <span class="feature-text"><strong>Писал текстовую структуру и&nbsp;верстал прототипы</strong> сайтов, презентаций и&nbsp;печатных изданий.</span></div>
+          <div class="feature-item"><span class="feature-icon">📝</span> <span class="feature-text"><strong>Писал статьи</strong> для продвижения сайтов.</span></div>
+          <div class="feature-item"><span class="feature-icon">📋</span> <span class="feature-text"><strong>Ставил ТЗ</strong> дизайнерам и&nbsp;верстальщикам.</span></div>
+        </div>
+        <div class="list-col">
+          <div class="feature-item"><span class="feature-icon">📢</span> <span class="feature-text"><strong>Общался с&nbsp;рекламными площадками</strong>: сообществами, каналами, газетами. Подбирал площадки, контролировал выходы публикаций.</span></div>
+          <div class="feature-item"><span class="feature-icon">🤝</span> <span class="feature-text"><strong>Общался с&nbsp;клиентами</strong>. Проводил интервью, согласовывал контент и&nbsp;защищал позицию команды.</span></div>
+        </div>
+      </div>
+
+      <div class="images-grid-2col">
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Выставка Министерства туризма<br>Краснодарского края</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img"></a>
+          </div>
+        </div>
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Сервис помощи автовладельцам<br>«Мобил-Ассистанс»</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img"></a>
+          </div>
+        </div>
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Ремонт топливной аппаратуры<br>«БелАвтоДизель»</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img"></a>
+          </div>
+        </div>
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Система управления гостиничным бизнесом «1С:Отель»</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img"></a>
+          </div>
+        </div>
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Программа финансирования бизнеса<br>«Фрэш Капитал»</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img"></a>
+          </div>
+        </div>
+        <div class="project-item">
+          <h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Криптовалютный фонд<br>«КриптоТрэйдингФанд»</a></h3>
+          <div class="img-placeholder placeholder-vertical">
+            <a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+                <!-- Что ещё делал -->
+    <section class="section">
+      <h2 class="section-title">Что ещё делал</h2>
+      <div class="projects-table three-cols">
+        <div class="project-col">
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/52d0f5818050447ac2e98e708b5cb1cb.png" alt="Статьи про агротуризм"></a></span>
+            <span class="project-text">Статьи про<br> агротуризм<br> <a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" class="project-link" target="_blank">в&nbsp;АиФ и&nbsp;КП</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/de504a220661a6e27114a4529b71527c.png" alt="Статьи для сочинского новостного портала"></a></span>
+            <span class="project-text">Статьи для<br> <a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" class="project-link" target="_blank">сочинского<br> новостного портала</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/32d023ef6287ddf0e653fd589f0cdb4b.png" alt="Статьи про презентации"></a></span>
+            <span class="project-text">Статьи про<br> <a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" class="project-link" target="_blank">презентации</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про керамзитобетонные блоки"></a></span>
+            <span class="project-text">Статьи про<br> керамзито&#8209;<br> <a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" class="project-link" target="_blank">бетонные блоки</a></span>
+          </div>
+        </div>
+        <div class="project-col">
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/54710f693fa13af194e0f8068fb7bd70.png" alt="Буклет про натяжные потолки"></a></span>
+            <span class="project-text"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" class="project-link" target="_blank">Буклет про<br> натяжные<br> потолки</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/1r3j2e79bl4EXMQtiSiq416YyLacAKT3T?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/b9ad1ed68d88a48cab8d0c0ab1166e24.png" alt="Посты про натяжные потолки"></a></span>
+            <span class="project-text"><a href="https://drive.google.com/drive/folders/1r3j2e79bl4EXMQtiSiq416YyLacAKT3T?usp=sharing" class="project-link" target="_blank">Посты про<br> натяжные<br> потолки</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://vkvideo.ru/video-27865943_456239423" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/ed45f774cccb8ad8e9c86f4b08be0e52.png" alt="Сценарий видео про натяжные потолки"></a></span>
+            <span class="project-text">Сценарий<br> <a href="https://vkvideo.ru/video-27865943_456239423" class="project-link" target="_blank">видео про<br> натяжные<br> потолки</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://vkvideo.ru/video-27865943_456239457" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/a18e32c15201347b21b507cdf6b4094c.png" alt="Сценарий передачи про натяжные потолки"></a></span>
+            <span class="project-text">Сценарий<br> <a href="https://vkvideo.ru/video-27865943_456239457" class="project-link" target="_blank">передачи про<br> натяжные<br> потолки</a></span>
+          </div>
+        </div>
+        <div class="project-col">
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f091acc18df266f25d2a31dee531d286.png" alt="Сценарии видео для Лайм ХДТВ"></a></span>
+            <span class="project-text">Сценарии<br> видео для<br> приложения<br> <a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" class="project-link" target="_blank">Лайм ХДТВ</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/drive/folders/1Ul1ijaxi-yRsgpFYmhGiXfHBFib7GVBY?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/2fc325df1acb57cd3696b1b71dc371f9.png" alt="Контент-планы и посты для Милк Дринк"></a></span>
+            <span class="project-text"><a href="https://drive.google.com/drive/folders/1Ul1ijaxi-yRsgpFYmhGiXfHBFib7GVBY?usp=sharing" class="project-link" target="_blank">Контент-планы<br> и&nbsp;посты для<br> Милк Дринк</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/53941e5f5f7e99127e7e385871648246.png" alt="Предложение для партии Справедливая Россия"></a></span>
+            <span class="project-text">Предложение для&nbsp;<a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" class="project-link" target="_blank">партии Справедливая Россия</a></span>
+          </div>
+          <div class="project-row">
+            <span class="project-thumb"><a href="https://drive.google.com/file/d/1FfxZqTYZzGZ29DNdpof2ypM9qNvx6aNK/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/a4a236cad13bc30e52a13d12b6572527.png" alt="Контент-стратегия для Слободы"></a></span>
+            <span class="project-text">Контент-стратегия для&nbsp;<a href="https://drive.google.com/file/d/1FfxZqTYZzGZ29DNdpof2ypM9qNvx6aNK/view?usp=sharing" class="project-link" target="_blank">Слободы</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section-title">Где учился</h2>
+      <ul>
+        <li><strong>Школа редакторов</strong>, Бюро Горбунова — 2026</li>
+        <li><strong>Веб-дизайн на&nbsp;Фигме</strong>, Скиллбокс — 2022</li>
+        <li><strong>Копирайтинг для лендингов</strong>, Агентство Продающих Текстов — 2020</li>
+        <li><strong>Контент-маркетинг</strong>, Нетология — 2016</li>
+        <li><strong>Факультет политологии</strong>, МГУ имени Ломоносова — 2014</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Что люблю</h2>
+      <ul>
+        <li><strong>слушаю</strong> музыку — от&nbsp;синтипопа и&nbsp;дарк-фолка до&nbsp;эмокора и&nbsp;ска-панка</li>
+        <li><strong>читаю</strong> художественную литературу и&nbsp;публицистику — особенно 20-30-х годов XX&nbsp;века</li>
+        <li><strong>изучаю</strong> политику, историю, архитектуру, скульптуру, живопись, графику</li>
+        <li><strong>путешествую</strong> по&nbsp;России</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="footer">
+    <h2 class="footer-title">Обсудим, чем я&nbsp;могу вам помочь</h2>
+    <div class="contacts footer-contacts">
+      <div class="footer-logos">
+        <a href="https://vk.ru/iggy.shark" target="_blank">
+          <img src="https://i127.fastpic.org/big/2026/0507/55/b06b39a41d7c07164c2356ab1e3fb455.png" alt="ВК" class="social-icon">
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOLpbvPH5vnnnF8CIk5_8Z6ITbUhuc730jVVVVSIxFM38VOXPZM" target="_blank">
+          <img src="https://i127.fastpic.org/big/2026/0507/67/b83cbb47f6dbafb6647f2f5cd5516d67.png" alt="Мах" class="social-icon">
+        </a>
+      </div>
+      <a href="mailto:iggy@lenta.ru" class="email-link">✉️ iggy@lenta.ru</a>
+    </div>
+  </div>
+</div>
     
   </body>
   
