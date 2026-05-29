@@ -687,30 +687,37 @@ li {
     height: auto;
   }
 
-  .images-grid-2col {
+ .images-grid-2col {
   margin: 1.5rem 0 0 0;           /* убираем отрицательные отступы */
-  grid-template-columns: 1fr;      /* оставляем одну колонку */
+  grid-template-columns: 1fr;      /* одна колонка */
 }
-  .project-item .placeholder-vertical {
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .project-item {
   padding: 1.5rem 1rem;           /* симметричные отступы */
   border-right: none;
   border-bottom: 3px solid #e2e8f0;
-  align-items: center;           /* горизонтальное центрирование содержимого */
-  text-align: center;            /* текст внутри по центру */
-    display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* выравнивание по левому краю – как обычно */
 }
+
 .project-item h3 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
 .project-item:nth-child(2n) {
   padding-left: 1rem;            /* убираем смещённые отступы у чётных */
+}
+
+/* Центрируем только картинки */
+.project-item .placeholder-vertical {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-item .case-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
   .case-subtitle {
     margin-bottom: 1rem;
@@ -772,7 +779,13 @@ li {
     margin: 0.5rem 0 0.1rem;
   }
 }
+.desktop-title { display: inline; }
+.mobile-title  { display: none; }
 
+@media (max-width: 750px) {
+  .desktop-title { display: none; }
+  .mobile-title  { display: inline; }
+}
 /* ===== ПОДВАЛ ===== */
 .footer {
   background: #D42C2C;
@@ -807,11 +820,4 @@ li {
   width: 64px;
   height: 64px;
 }
-.mobile-br {
-  display: none;
-}
-@media (max-width: 750px) {
-  .mobile-br {
-    display: inline;
-  }
-}
+
