@@ -691,12 +691,19 @@ li {
   margin: 1.5rem 0 0 0;           /* убираем отрицательные отступы */
   grid-template-columns: 1fr;      /* оставляем одну колонку */
 }
+  .project-item .placeholder-vertical {
+  margin-left: auto;
+  margin-right: auto;
+}
 .project-item {
   padding: 1.5rem 1rem;           /* симметричные отступы */
   border-right: none;
   border-bottom: 3px solid #e2e8f0;
   align-items: center;           /* горизонтальное центрирование содержимого */
   text-align: center;            /* текст внутри по центру */
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .project-item h3 {
   padding-left: 1rem;
