@@ -688,20 +688,20 @@ li {
   }
 
 .images-grid-2col {
-    margin: 1.5rem -1.3rem 0 -1rem;   /* как было раньше */
+    margin: 1.5rem -1.3rem 0 -1rem;   /* как было утром */
     grid-template-columns: 1fr;
   }
   .project-item {
-    padding: 1.5rem 1.3rem 1.5rem 1rem;
+    padding: 1.5rem 1.3rem 1.5rem 1rem; /* как было утром */
     border-right: none;
     border-bottom: 3px solid #e2e8f0;
   }
   .project-item h3 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1rem;                /* ← добавили только это */
+    padding-right: 1rem;               /* ← и это */
   }
   .project-item:nth-child(2n) {
-    padding-left: 1.3rem;            /* как было раньше */
+    padding-left: 1.3rem;              /* как было утром */
   }
 
   .case-subtitle {
