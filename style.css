@@ -771,6 +771,9 @@ li {
 @media (max-width: 750px) {
   .mobile-br { display: inline; }
 }
+.project-text a.project-link {
+  display: contents;
+}
 
 /* ===== ПОДВАЛ ===== */
 .footer {
