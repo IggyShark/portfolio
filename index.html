@@ -9,23 +9,23 @@
     <meta property="og:url" content="https://iggyshark.github.io/portfolio/">
     <meta charset="UTF-8"> 
    <style>
-  /* === Критические стили (предотвращают красную вспышку и битые списки) === */
+  /* === Критические стили (без красной вспышки и с фиолетовыми ссылками) === */
 
-  /* Шапка и подвал – сразу красные */
+  /* Контейнер сразу красный, чтобы не было мигания */
+  .container {
+    background-color: #D42C2C;
+  }
+
+  /* Шапка и подвал – красные (подстраховка) */
   .header,
   .footer {
     background-color: #D42C2C;
   }
 
-  /* Блок «О себе» и все секции – сразу белые */
+  /* Блок «О себе» и все секции – белые */
   .about-block,
   .section {
     background-color: #ffffff;
-  }
-
-  /* Контейнеру не задаём фон, чтобы не мигал */
-  .container {
-    background-color: transparent;
   }
 
   /* Базовые стили для текста в критических блоках */
@@ -50,6 +50,15 @@
   li {
     margin-bottom: 0.3rem;
     line-height: 1.5;
+  }
+
+  /* Посещённые ссылки – фиолетовый текст и подчёркивание */
+  a:visited,
+  .about-link:visited,
+  .project-link:visited,
+  .email-link:visited {
+    color: #800080;
+    border-bottom-color: #800080;
   }
 </style>
     <title>Шарков Портфолио</title>
