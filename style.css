@@ -507,6 +507,7 @@ li {
 /* Посещённые ссылки */
 a:visited {
   color: #800080;
+  border-bottom-color: #800080;
 }
 
 /* Логотипы */
