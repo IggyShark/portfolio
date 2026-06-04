@@ -9,19 +9,26 @@
     <meta property="og:url" content="https://iggyshark.github.io/portfolio/">
     <meta charset="UTF-8"> 
    <style>
-  /* === Критические стили для GitHub Pages === */
-  html, body {
-    background-color: #ffffff !important;  /* чтобы не было красной вспышки на всю страницу */
-  }
-  .container {
-    background-color: #f4f7fa;   /* временный светлый фон, без !important */
+  /* === Критические стили (предотвращают красную вспышку и битые списки) === */
+
+  /* Шапка и подвал – сразу красные */
+  .header,
+  .footer {
+    background-color: #D42C2C;
   }
 
-  .about-block {
-    background: white;
-    padding: 2rem 2.2rem 1rem 1.8rem;
-    border-bottom: none;
+  /* Блок «О себе» и все секции – сразу белые */
+  .about-block,
+  .section {
+    background-color: #ffffff;
   }
+
+  /* Контейнеру не задаём фон, чтобы не мигал */
+  .container {
+    background-color: transparent;
+  }
+
+  /* Базовые стили для текста в критических блоках */
   .about-text {
     font-size: 1.2rem;
     line-height: 1.55;
@@ -34,6 +41,7 @@
     border-bottom: 1px solid #2d3748;
   }
 
+  /* Убираем буллиты и отступы у всех списков */
   ul {
     list-style-type: none !important;
     margin-left: 0 !important;
