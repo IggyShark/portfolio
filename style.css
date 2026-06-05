@@ -1,4 +1,4 @@
-/* style.css — исправленная версия (мобильная вёрстка возвращена к исходной) */
+/* style.css — исправленная версия */
 * {
   margin: 0;
   padding: 0;
@@ -115,8 +115,17 @@ body {
 .first-case { padding-top: 0.25rem; }
 .case-section { padding-top: 1rem; padding-bottom: 3.5rem; }
 
+/* Глобальные размеры шрифтов */
+body, .about-text, .feature-item, .project-row, .case-text p, .case-summary, .case-subtitle, .intro-text, .lead-text, li, p {
+  font-size: 1.2rem;
+}
+h3, .case-section h3, .project-item h3 {
+  font-size: 1.92rem; /* 1.2 * 1.6 */
+  margin: 0.4rem 0 0.1rem;
+  color: #D42C2C;
+}
 h2.section-title {
-  font-size: 1.5rem;
+  font-size: 3rem; /* 1.92 * 1.6 ≈ 3.07, округлил */
   font-weight: bold;
   margin: 0 0 0.96rem;
   color: #D42C2C;
@@ -124,27 +133,16 @@ h2.section-title {
   padding-left: 0.75rem;
   margin-left: -1.8rem;
   padding-left: 1.8rem;
+  line-height: 1.2;
 }
-h3 {
-  font-size: 1.35rem;
-  margin: 0.4rem 0 0.1rem;
-  color: #D42C2C;
-}
-.case-section h3, .project-item h3 { font-size: 1.5rem; }
 .case-heading-link { text-decoration: none; color: inherit; }
+.case-heading-link:hover { text-decoration: underline; }
 
-p {
-  font-size: 1.2rem;
-  color: #2d3748;
-  margin: 0.5rem 0 0.25rem;
-  line-height: 1.55;
-}
 .case-sentence { display: block; text-indent: 1em; margin-bottom: 0.4rem; }
 ul { margin-left: 1.5rem; margin-bottom: 0.5rem; }
-li { font-size: 1.2rem; margin-bottom: 0.3rem; }
-.intro-text, .lead-text { font-size: 1.2rem; margin-bottom: 0.5rem; color: #1e2a3a; }
-.case-summary { font-size: 1.2rem; margin: 0.25rem 0 0.75rem; color: #1e2a3a; }
-.case-subtitle { color: #6b7280; font-size: 1.2rem; margin: 0 0 0.5rem; }
+.intro-text, .lead-text { margin-bottom: 0.5rem; color: #1e2a3a; }
+.case-summary { margin: 0.25rem 0 0.75rem; color: #1e2a3a; }
+.case-subtitle { color: #6b7280; margin: 0 0 0.5rem; }
 
 /* Сетки */
 .features-grid {
@@ -156,7 +154,6 @@ li { font-size: 1.2rem; margin-bottom: 0.3rem; }
 .feature-item {
   display: flex;
   align-items: baseline;
-  font-size: 1.2rem;
   line-height: 1.5;
   color: #2d3748;
 }
@@ -208,47 +205,37 @@ li { font-size: 1.2rem; margin-bottom: 0.3rem; }
 .case-row > * { flex: 1; min-width: 0; }
 .grow { flex-grow: 1; min-height: 0; aspect-ratio: unset; }
 
-/* ДЕСКТОПНЫЕ ПРАВКИ: увеличение Эксперта, фиксация Посева, выравнивание по низу */
+/* ДЕСКТОПНЫЕ ПРАВКИ */
 @media (min-width: 641px) {
-  .case-row .img-vertical-full {
-    width: 220px;          /* фиксированная ширина Посева */
-    flex-shrink: 0;
-    flex-grow: 0;
+  /* Эксперт и Посев одинакового размера */
+  .case-row .img-4-5, .case-row .img-vertical-full {
+    flex: 1;
   }
-  .case-row .img-4-5 {
-    flex-grow: 1.5;       /* Эксперт занимает в 1,5 раза больше свободного места */
+  /* Сдвиг вертикальной картинки Металлоинвеста на 3% вправо */
+  .metalloinvest-right {
+    transform: translateX(3%);
   }
-  /* Выравнивание нижних линий: Эксперт, Посев и нижняя картинка во втором столбце */
-  .case-row {
-    align-items: stretch;
+  /* Прижимаем верхнюю картинку ЦСМ к нижней */
+  .medical .case-right {
+    gap: 0;
+    justify-content: flex-start;
   }
-  .case-row > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .case-left .case-row,
-  .case-right {
-    justify-content: space-between;
-  }
-  /* Для ЦСМ: видео прижато к правому краю и выровнено по низу */
-  .medical .case-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  .medical .case-right .img-placeholder:first-child {
+    margin-bottom: 0;
   }
   .medical .csm-video {
     align-self: flex-end;
-    width: 80%;            /* уменьшаем ширину видео */
-    margin-top: auto;      /* прижимаем к низу */
+    width: 80%;
+    margin-top: auto;
   }
-  .medical .case-right {
-    justify-content: flex-end;
+  /* Уменьшаем отступ под блоком посадочных */
+  .portfolio-section {
+    padding-bottom: 1rem;
   }
 }
 
 /* Портфолио */
-.portfolio-section { padding-top: 3rem; padding-bottom: 2.5rem; background: white; border-bottom: none; }
+.portfolio-section { padding-top: 3rem; background: white; border-bottom: none; }
 .images-grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -295,7 +282,6 @@ li { font-size: 1.2rem; margin-bottom: 0.3rem; }
 .project-row {
   display: flex;
   align-items: flex-start;
-  font-size: 1.2rem;
   line-height: 1.5;
   color: #2d3748;
 }
@@ -328,7 +314,7 @@ a:visited, .project-link:visited { color: #800080; border-bottom-color: #800080;
 .footer-logos { display: flex; gap: 1.5rem; }
 .footer-logos .social-icon { width: 64px; height: 64px; }
 
-/* ========== МОБИЛЬНАЯ ВЁРСТКА (возвращена к исходному состоянию) ========== */
+/* ========== МОБИЛЬНАЯ ВЁРСТКА (исправленная) ========== */
 @media (max-width: 750px) {
   .header {
     display: flex;
@@ -371,9 +357,17 @@ a:visited, .project-link:visited { color: #800080; border-bottom-color: #800080;
   .header { grid-template-rows: auto auto; }
   .photo { margin-top: 0; }
   .contacts { transform: none; align-items: center; }
-  h2.section-title { margin-left: -1rem; padding-left: 1rem; margin-bottom: 0.8rem; }
+  h2.section-title {
+    margin-left: -1rem;
+    padding-left: 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 2rem !important; /* уменьшаем на мобиле, но сохраняем пропорцию */
+  }
+  h3, .case-section h3, .project-item h3 {
+    font-size: 1.4rem !important;
+  }
   
-  /* Отключаем все двухколоночные сетки на мобиле — делаем одну колонку */
+  /* Отключаем двухколоночные сетки на мобиле */
   .features-grid,
   .two-col-list,
   .images-grid-2col,
@@ -381,8 +375,28 @@ a:visited, .project-link:visited { color: #800080; border-bottom-color: #800080;
     grid-template-columns: 1fr !important;
     gap: 1rem;
   }
+  
+  /* Порядок пунктов в "Запускал кампании" как на десктопе (по столбцам) */
+  .features-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .features-grid .feature-item:nth-child(1) { order: 1; }
+  .features-grid .feature-item:nth-child(3) { order: 2; }
+  .features-grid .feature-item:nth-child(5) { order: 3; }
+  .features-grid .feature-item:nth-child(7) { order: 4; }
+  .features-grid .feature-item:nth-child(2) { order: 5; }
+  .features-grid .feature-item:nth-child(4) { order: 6; }
+  .features-grid .feature-item:nth-child(6) { order: 7; }
+  .features-grid .feature-item:nth-child(8) { order: 8; }
+  
   .project-item::after { display: none; }
   .project-item:nth-child(2n) { padding-left: 1.3rem; }
+  /* Выравниваем заголовки лендингов по левому краю как у h2 */
+  .project-item h3 {
+    margin-left: -1rem;
+    padding-left: 1rem;
+  }
   
   .case-grid {
     grid-template-columns: 1fr;
@@ -409,6 +423,9 @@ a:visited, .project-link:visited { color: #800080; border-bottom-color: #800080;
   .medical .csm-video {
     width: 100%;
     align-self: center;
+  }
+  .medical .case-right {
+    gap: 1rem;
   }
   
   /* "Что ещё писал" на мобиле — одна колонка */
