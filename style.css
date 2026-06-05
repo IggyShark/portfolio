@@ -1,3 +1,4 @@
+/* style.css — исправленная версия (мобильная вёрстка возвращена к исходной) */
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +31,6 @@ body {
   gap: 1rem 2rem;
   border-radius: 24px 24px 0 0;
 }
-
 .name-cell { grid-column: 1 / 2; grid-row: 1 / 2; }
 .name {
   height: 220px;
@@ -45,7 +45,6 @@ body {
 .name span { display: block; font-size: 130px; line-height: 0.95; }
 .name span:first-child { margin-top: -23px; }
 .name span:last-child { margin-bottom: -7px; }
-
 .photo-cell { grid-column: 2 / 3; grid-row: 1 / 2; justify-self: end; }
 .photo {
   width: 220px;
@@ -57,7 +56,6 @@ body {
   box-sizing: content-box;
   margin-top: -14px;
 }
-
 .job-cell { grid-column: 1 / 2; grid-row: 2 / 3; align-self: end; }
 .job-title {
   font-size: 1.5rem;
@@ -73,7 +71,6 @@ body {
   margin: 0.3rem 0 0;
   transform: translateY(32px);
 }
-
 .contacts-cell { grid-column: 2 / 3; grid-row: 2 / 3; align-self: end; display: flex; justify-content: flex-end; }
 .contacts {
   display: flex;
@@ -87,7 +84,6 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.5);
   white-space: nowrap;
 }
-.email-link:hover { border-bottom: 1px solid white; }
 .social-icon { width: 48px; height: 48px; object-fit: contain; }
 .contacts a:has(.social-icon) { border-bottom: none; }
 
@@ -136,7 +132,6 @@ h3 {
 }
 .case-section h3, .project-item h3 { font-size: 1.5rem; }
 .case-heading-link { text-decoration: none; color: inherit; }
-.case-heading-link:hover { text-decoration: underline; }
 
 p {
   font-size: 1.2rem;
@@ -204,10 +199,55 @@ li { font-size: 1.2rem; margin-bottom: 0.3rem; }
 .img-square { aspect-ratio: 1 / 1; }
 
 .case-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-.case-row { display: flex; gap: 1.5rem; align-items: start; width: 100%; }
+.case-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: start;
+  width: 100%;
+}
 .case-row > * { flex: 1; min-width: 0; }
 .grow { flex-grow: 1; min-height: 0; aspect-ratio: unset; }
 
+/* ДЕСКТОПНЫЕ ПРАВКИ: увеличение Эксперта, фиксация Посева, выравнивание по низу */
+@media (min-width: 641px) {
+  .case-row .img-vertical-full {
+    width: 220px;          /* фиксированная ширина Посева */
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+  .case-row .img-4-5 {
+    flex-grow: 1.5;       /* Эксперт занимает в 1,5 раза больше свободного места */
+  }
+  /* Выравнивание нижних линий: Эксперт, Посев и нижняя картинка во втором столбце */
+  .case-row {
+    align-items: stretch;
+  }
+  .case-row > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .case-left .case-row,
+  .case-right {
+    justify-content: space-between;
+  }
+  /* Для ЦСМ: видео прижато к правому краю и выровнено по низу */
+  .medical .case-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .medical .csm-video {
+    align-self: flex-end;
+    width: 80%;            /* уменьшаем ширину видео */
+    margin-top: auto;      /* прижимаем к низу */
+  }
+  .medical .case-right {
+    justify-content: flex-end;
+  }
+}
+
+/* Портфолио */
 .portfolio-section { padding-top: 3rem; padding-bottom: 2.5rem; background: white; border-bottom: none; }
 .images-grid-2col {
   display: grid;
@@ -235,10 +275,9 @@ li { font-size: 1.2rem; margin-bottom: 0.3rem; }
 .project-item:nth-child(2n) { padding-left: 1.62rem; }
 .project-item h3 { margin-top: 0; margin-bottom: 1rem; line-height: 1.3; }
 .project-item h3 a { text-decoration: none; color: inherit; }
-.project-item h3 a:hover { text-decoration: underline; }
 .placeholder-vertical { aspect-ratio: 2 / 3; background: #fff; border-radius: 8px; }
 
-/* Три колонки для "Что ещё писал" на десктопе */
+/* "Что ещё писал" — три колонки на десктопе */
 .projects-table.three-cols {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -289,124 +328,126 @@ a:visited, .project-link:visited { color: #800080; border-bottom-color: #800080;
 .footer-logos { display: flex; gap: 1.5rem; }
 .footer-logos .social-icon { width: 64px; height: 64px; }
 
-/* Мобильные стили (≤640px) */
-@media (max-width: 640px) {
-  body { padding: 1rem 0.5rem; }
-  .container { border-radius: 16px; }
-  
-  /* Уменьшаем базовый шрифт на мобиле */
-  body, .about-text, .feature-item, .project-row, .case-text p, .case-summary, .case-subtitle, .intro-text, .lead-text, li, p {
-    font-size: 0.85rem !important;
-  }
-  h2.section-title { font-size: 1.2rem !important; margin-bottom: 0.6rem; }
-  h3, .case-section h3, .project-item h3 { font-size: 1.1rem !important; }
-  
-  /* Шапка */
+/* ========== МОБИЛЬНАЯ ВЁРСТКА (возвращена к исходному состоянию) ========== */
+@media (max-width: 750px) {
   .header {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem 1rem 2rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
   }
-  .photo-cell { margin: 1rem 0; }
-  .photo { width: 150px; height: 150px; border-width: 8px; margin-top: 0; }
-  .name span { font-size: 2.5rem !important; line-height: 1.1; }
-  .job-title, .tagline { transform: none; }
-  .contacts { transform: none; justify-content: center; flex-wrap: wrap; gap: 0.8rem; }
-  .email-link { font-size: 0.85rem !important; white-space: normal; }
-  .social-icon { width: 40px; height: 40px; }
-  
-  /* О себе - две колонки */
+  .photo-cell {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .contacts { justify-content: center; }
+  .name { height: auto; display: block; text-align: center; margin-left: 0; }
+  .name span { font-size: 3.5rem; line-height: 1.2; }
+  .job-cell { align-self: auto; }
+  .contacts-cell { align-self: auto; margin-top: 1.5rem; }
+  .tagline,
+  .job-title { transform: none; margin-left: 0; }
+  .job-title { margin-bottom: 1rem; }
+  .contacts { flex-wrap: wrap; justify-content: center; transform: none; }
+  .email-link { display: block; width: fit-content; margin: 0.2rem auto 0; border-bottom: 1px solid rgba(255,255,255,0.5); text-align: center; white-space: normal; }
+  .social-icon { width: 64px; height: 64px; }
+  .case-right > :first-child { margin-top: 0; }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 1.5rem 1.3rem 2rem 1rem;
+  }
+  .section:first-of-type {
+    padding-top: 2rem;
+  }
   .about-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-    padding: 1rem;
+    padding: 1.5rem 1.3rem;
   }
-  .about-block .about-text { margin-bottom: 0; }
+  .header { grid-template-rows: auto auto; }
+  .photo { margin-top: 0; }
+  .contacts { transform: none; align-items: center; }
+  h2.section-title { margin-left: -1rem; padding-left: 1rem; margin-bottom: 0.8rem; }
   
-  /* Секции */
-  .section { padding: 1rem 1rem 1.5rem; }
-  h2.section-title { margin-left: -1rem; padding-left: 1rem; }
-  
-  /* Запускал кампании - две колонки */
-  .features-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 0.8rem;
-  }
-  .feature-icon { width: 1.4rem; font-size: 1.1rem; }
-  
-  /* Делал посадочные - две колонки */
-  .two-col-list {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
-  .list-col { gap: 0.5rem; }
-  
-  /* Кейсы посадочных - две колонки с уменьшенными картинками */
-  .images-grid-2col {
-    grid-template-columns: 1fr 1fr !important;
-    margin: 1rem 0 0;
-    gap: 0.5rem;
-  }
-  .project-item {
-    padding: 0.5rem;
-    border-bottom: none;
+  /* Отключаем все двухколоночные сетки на мобиле — делаем одну колонку */
+  .features-grid,
+  .two-col-list,
+  .images-grid-2col,
+  .projects-table.three-cols {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
   }
   .project-item::after { display: none; }
-  .project-item h3 { margin-bottom: 0.5rem; font-size: 0.8rem !important; }
-  .placeholder-vertical { aspect-ratio: 2/3; }
-  .case-img { border-radius: 4px; }
+  .project-item:nth-child(2n) { padding-left: 1.3rem; }
   
-  /* Что ещё писал - две колонки и выравнивание */
-  .projects-table.three-cols {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.8rem;
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-  .project-col { gap: 0.8rem; }
+  .case-left, .case-right {
+    height: auto;
+    gap: 1rem;
+  }
+  .case-row {
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+  .case-row .img-placeholder {
+    aspect-ratio: auto;
+  }
+  .video-wide {
+    width: 100%;
+    margin: 1rem 0 0;
+  }
+  .video-wide .img-wide-horizontal {
+    aspect-ratio: 16 / 6;
+  }
+  .medical .csm-video {
+    width: 100%;
+    align-self: center;
+  }
+  
+  /* "Что ещё писал" на мобиле — одна колонка */
   .project-row {
     flex-direction: column;
     align-items: flex-start;
+    line-height: 1.3;
+  }
+  .project-col {
+    gap: 2rem;
   }
   .project-thumb {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
     width: 100%;
     height: auto;
-    aspect-ratio: 4/3;
-    margin-right: 0;
-    margin-bottom: 0.3rem;
+    aspect-ratio: 4 / 3;
   }
-  .project-text { font-size: 0.75rem !important; line-height: 1.3; }
-  /* Выравниваем высоту строк в колонках */
-  .project-col {
-    display: flex;
-    flex-direction: column;
+  .project-text br {
+    display: none;
   }
-  .project-row {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  .portfolio-section {
+    padding-top: 2rem;
   }
-  
-  /* Кейс Слободы: картинки рядом */
-  .case-row {
-    flex-direction: row !important;
-    gap: 0.5rem;
+  .footer {
+    text-align: center;
+    padding: 2rem 1.5rem 2.5rem;
   }
-  .case-grid { gap: 0.8rem; }
-  .case-left, .case-right { gap: 0.8rem; }
-  .video-wide { width: 100%; margin: 0.5rem 0; }
-  .img-wide-horizontal { aspect-ratio: 16/6; }
-  
-  /* Подвал */
-  .footer { padding: 1rem; text-align: center; }
-  .footer-title { font-size: 1rem; }
-  .footer-logos .social-icon { width: 40px; height: 40px; }
-  .footer-contacts { justify-content: center; gap: 0.8rem; }
-  
-  /* Убираем лишние отступы */
-  .case-section { padding-bottom: 1.5rem; }
-  #eshchyo { padding-top: 0.5rem !important; }
+  .footer-title {
+    text-align: center;
+  }
+  .footer-contacts {
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-logos {
+    justify-content: center;
+    margin: 0.5rem 0 0.1rem;
+  }
 }
 
 .mobile-br { display: none; }
