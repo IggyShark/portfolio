@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/2/27/Red_square.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,7 @@
     <meta property="og:url" content="https://iggyshark.github.io/portfolio/">
     <meta charset="UTF-8"> 
    <style>
-  /* === Критические стили (без красной вспышки и с фиолетовыми ссылками) === */
-
-  /* Контейнер сразу красный, чтобы не было мигания */
-  .container {
-    background-color: #D42C2C;
-  }
+  /* === Критические стили (без красной вспышки, контейнеру цвет задан инлайном) === */
 
   /* Шапка и подвал – красные (подстраховка) */
   .header,
@@ -65,7 +60,7 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<div class="container">
+<div class="container" style="background-color: #D42C2C;">
   <div class="header">
     <div class="name-cell">
       <h1 class="name">
@@ -97,13 +92,13 @@
   <div class="about-block">
     <p class="about-text">
       <strong>В&nbsp;коммуникациях с&nbsp;2011&nbsp;года. Вёл
-      <a href="#social" class="about-link">соцсети брендов</a>,
+      <a href="#sotsseti" class="about-link">соцсети брендов</a>,
       делал
-      <a href="#landing" class="about-link">лендинги и&nbsp;презентации</a>,
+      <a href="#posadochnye" class="about-link">лендинги и&nbsp;презентации</a>,
       писал
-      <a href="#writing" class="about-link">статьи и&nbsp;сценарии</a>.</strong>
+      <a href="#eshchyo" class="about-link">статьи и&nbsp;сценарии</a>.</strong>
       Всё,&nbsp;чтобы мои клиенты отстраивались от&nbsp;конкурентов, улучшали репутацию и&nbsp;увеличивали продажи.
-      <a href="#education" class="about-link">Постоянно учусь</a>, чтобы не&nbsp;стоять на&nbsp;месте и&nbsp;делать круче.
+      <a href="#uchyoba" class="about-link">Постоянно учусь</a>, чтобы не&nbsp;стоять на&nbsp;месте и&nbsp;делать круче.
     </p>
     <p class="about-text">
       <strong>Не&nbsp;просто пишу тексты</strong>, а&nbsp;провожу аудит, придумываю идеи и&nbsp;анализирую результаты в&nbsp;цифрах.
@@ -113,7 +108,7 @@
   </div>
 
   <div class="content">
-    <section class="section" id="social">
+    <section class="section" id="sotsseti">
       <h2 class="section-title">Запускал кампании в&nbsp;соцсетях</h2>
       <p class="intro-text"><strong>Вёл сообщества и&nbsp;каналы</strong> Слободы, Металлоинвеста и&nbsp;других организаций.</p>
 
@@ -158,14 +153,9 @@
         </div>
         <div class="case-right">
           <div class="img-placeholder img-vertical-full grow">
-            <iframe
-                src="https://drive.google.com/file/d/1Wo7e7_PhIBdPgOfdHIebxZas8_KA0cqK/preview"
-                width="100%"
-                height="100%"
-                style="border:0; border-radius:8px;"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
+            <video width="100%" height="100%" controls muted loop playsinline style="border-radius: 8px; object-fit: cover;">
+              <source src="https://allwebs.ru/images/2026/06/05/c704c06a6753ae6875134092f0b0c95b.mp4" type="video/mp4">
+            </video>
           </div>
           <div class="img-placeholder img-horizontal">
             <img src="https://i127.fastpic.org/big/2026/0521/c9/0460f7cc822da1ffe3bc4c404494b2c9.png" alt="Горизонтальная 3" class="case-img">
@@ -188,19 +178,8 @@
             </p>
           </div>
           <div class="img-placeholder img-horizontal">
-            <video
-              width="100%"
-              height="100%"
-              controls
-              muted
-              loop
-              playsinline
-              style="border-radius: 8px; object-fit: cover;"
-            >
-              <source
-                src="https://radar-online.ru/cockpit/storage/uploads/2026/04/09/69d76cde50e73goroskop-animation.mp4"
-                type="video/mp4"
-              />
+            <video width="100%" height="100%" controls muted loop playsinline style="border-radius: 8px; object-fit: cover;">
+              <source src="https://allwebs.ru/images/2026/06/05/943751726f73c19930681bde26ba3059.mp4" type="video/mp4">
             </video>
           </div>
           <div class="img-placeholder img-horizontal" style="margin-top: auto; margin-bottom: auto;">
@@ -215,7 +194,9 @@
       </div>
       <div class="case-full-width video-wide">
         <div class="img-placeholder img-wide-horizontal">
-          <iframe src="https://radar-online.ru/cockpit/storage/uploads/2026/04/14/69de19f92dec7kv-animation_2.mp4" style="border:0; width:100%; height:100%;" allowfullscreen></iframe>
+          <video width="100%" height="100%" controls muted loop playsinline style="border-radius: 8px; object-fit: cover;">
+            <source src="https://allwebs.ru/images/2026/06/05/10414ac410da94f22987714a8bc6e337.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
@@ -233,23 +214,20 @@
               <span class="case-sentence"><strong>Привёл всё в&nbsp;порядок</strong>, выстроил конвейер выхода постов. Клиент перестал тратить время на&nbsp;контроль и&nbsp;правки.</span>
             </p>
           </div>
+          <!-- Новое квадратное видео под абзацем -->
+          <div class="img-placeholder img-square">
+            <video width="100%" height="100%" controls muted loop playsinline style="border-radius: 8px; object-fit: cover; aspect-ratio: 1/1;">
+              <source src="https://allwebs.ru/images/2026/06/05/7876dc9bafcfd99d43efe32c850b3371.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="case-right">
+          <!-- Две горизонтальные картинки перенесены сюда -->
           <div class="img-placeholder img-horizontal">
             <a href="https://radar-online.ru/all-works/csmSmm" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/b6/59d5b566bead75b1bcb0c123923749b6.png" alt="Горизонтальная 1" class="case-img"></a>
           </div>
           <div class="img-placeholder img-horizontal">
             <a href="https://radar-online.ru/all-works/csmSmm" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/50/245e2b7e661ae2052cdf0bc846113350.png" alt="Горизонтальная 2" class="case-img"></a>
-          </div>
-        </div>
-        <div class="case-right">
-          <div class="img-placeholder img-vertical-full">
-            <iframe
-                src="https://drive.google.com/file/d/1yVBT_f-jEn21Rrfa1kbdu4Coha2gbMi1/preview"
-                width="100%"
-                height="100%"
-                style="border:0; border-radius:8px;"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
           </div>
         </div>
       </div>
@@ -284,7 +262,7 @@
     </section>
 
     <!-- Делал посадочные страницы и презентации -->
-    <section class="section portfolio-section" id="landing">
+    <section class="section portfolio-section" id="posadochnye">
       <h2 class="section-title">Делал посадочные страницы и&nbsp;презентации</h2>
       <p class="lead-text"><strong>Упаковывал торговые предложения брендов</strong> в&nbsp;продающие материалы.</p>
       <div class="two-col-list">
@@ -362,10 +340,11 @@
       </div>
     </section>
 
-    <!-- Что ещё делал -->
-    <section class="section" id="writing">
+    <!-- Что ещё делал (перестроено на 2 колонки по 6 кейсов) -->
+    <section class="section" id="eshchyo">
       <h2 class="section-title">Что я ещё писал</h2>
-      <div class="projects-table three-cols">
+      <div class="projects-table two-cols-for-mobile">
+        <!-- Первая колонка – 6 кейсов -->
         <div class="project-col">
           <div class="project-row">
             <span class="project-thumb"><a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/52d0f5818050447ac2e98e708b5cb1cb.png" alt="Статьи про агротуризм"></a></span>
@@ -383,8 +362,6 @@
             <span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про керамзитобетонные блоки"></a></span>
             <span class="project-text">Статьи про<br> керамзито&#8209;<br> <a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" class="project-link" target="_blank">бетонные блоки</a></span>
           </div>
-        </div>
-        <div class="project-col">
           <div class="project-row">
             <span class="project-thumb"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/54710f693fa13af194e0f8068fb7bd70.png" alt="Буклет про натяжные потолки"></a></span>
             <span class="project-text"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" class="project-link" target="_blank">Буклет про<br> натяжные<br> потолки</a></span>
@@ -393,6 +370,9 @@
             <span class="project-thumb"><a href="https://drive.google.com/drive/folders/1r3j2e79bl4EXMQtiSiq416YyLacAKT3T?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/b9ad1ed68d88a48cab8d0c0ab1166e24.png" alt="Посты про натяжные потолки"></a></span>
             <span class="project-text"><a href="https://drive.google.com/drive/folders/1r3j2e79bl4EXMQtiSiq416YyLacAKT3T?usp=sharing" class="project-link" target="_blank">Посты про<br> натяжные<br> потолки</a></span>
           </div>
+        </div>
+        <!-- Вторая колонка – ещё 6 кейсов -->
+        <div class="project-col">
           <div class="project-row">
             <span class="project-thumb"><a href="https://vkvideo.ru/video-27865943_456239423" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/ed45f774cccb8ad8e9c86f4b08be0e52.png" alt="Сценарий видео про натяжные потолки"></a></span>
             <span class="project-text">Сценарий<br> <a href="https://vkvideo.ru/video-27865943_456239423" class="project-link" target="_blank">видео про<br class="mobile-br"> натяжные потолки</a></span>
@@ -401,8 +381,6 @@
             <span class="project-thumb"><a href="https://vkvideo.ru/video-27865943_456239457" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/a18e32c15201347b21b507cdf6b4094c.png" alt="Сценарий передачи про натяжные потолки"></a></span>
             <span class="project-text">Сценарий<br> <a href="https://vkvideo.ru/video-27865943_456239457" class="project-link" target="_blank">передачи про<br class="mobile-br"> натяжные потолки</a></span>
           </div>
-        </div>
-        <div class="project-col">
           <div class="project-row">
             <span class="project-thumb"><a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f091acc18df266f25d2a31dee531d286.png" alt="Сценарии видео для Лайм ХДТВ"></a></span>
             <span class="project-text">Сценарии<br> видео для<br> приложения<br> <a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" class="project-link" target="_blank">Лайм ХДТВ</a></span>
@@ -423,7 +401,7 @@
       </div>
     </section>
 
-    <section class="section" id="education">
+    <section class="section" id="uchyoba">
       <h2 class="section-title">Где учился</h2>
       <ul>
         <li><strong>— Школа редакторов</strong>, Бюро Горбунова, 2026</li>
