@@ -63,8 +63,14 @@
         .case-heading-link:hover {
             text-decoration: underline;
         }
-        .about-text, .feature-item, .project-row, .case-text p, .case-summary, .case-subtitle, .intro-text, .lead-text, li, p {
+        .about-text, .feature-item, .project-row, .case-text p, .case-summary, .intro-text, .lead-text, li, p {
             font-size: 1rem; /* относительно body 1.2rem, но для удобства задаём em */
+        }
+        /* Субтитры — в 1.2 раза меньше обычного текста */
+        .case-subtitle {
+            font-size: 0.833rem;
+            color: #6b7280;
+            margin: 0 0 0.5rem;
         }
         /* Утилиты */
         ul {
@@ -175,7 +181,6 @@
         .case-sentence { display: block; text-indent: 1em; margin-bottom: 0.4rem; }
         .intro-text, .lead-text { margin-bottom: 0.5rem; color: #1e2a3a; }
         .case-summary { margin: 0.25rem 0 0.75rem; color: #1e2a3a; }
-        .case-subtitle { color: #6b7280; margin: 0 0 0.5rem; }
 
         /* Сетки */
         .features-grid {
@@ -240,9 +245,10 @@
 
         /* Десктопные корректировки */
         @media (min-width: 641px) {
-            /* Эксперт и Посев одинакового размера */
+            /* Эксперт и Посев – одинаковые контейнеры (оба 2:3) */
             .case-row .img-4-5, .case-row .img-vertical-full {
                 flex: 1;
+                aspect-ratio: 2 / 3;
             }
             /* Металлоинвест: правую картинку уменьшаем на 3% и прижимаем к правому краю */
             .metalloinvest-right {
@@ -264,7 +270,7 @@
             }
         }
 
-        /* Портфолио (посадочные) */
+        /* Портфолио (посадочные) – вертикальные линии от верха до низа */
         .portfolio-section { padding-top: 3rem; background: white; border-bottom: none; }
         .images-grid-2col {
             display: grid;
@@ -276,15 +282,15 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            border-bottom: 3px solid #e2e8f0;
             padding: 1.5rem 2.2rem 1.5rem 1.8rem;
+            border-bottom: none;
         }
         .project-item::after {
             content: '';
             position: absolute;
             right: 0;
-            top: 1.5rem;
-            bottom: 0;
+            top: 0;
+            height: 100%;
             width: 3px;
             background: #e2e8f0;
         }
@@ -341,19 +347,21 @@
         .footer-logos { display: flex; gap: 1.5rem; }
         .footer-logos .social-icon { width: 64px; height: 64px; }
 
-        /* ========== МОБИЛЬНАЯ ВЁРСТКА (пропорциональные шрифты) ========== */
+        /* ========== МОБИЛЬНАЯ ВЁРСТКА ========== */
         @media (max-width: 750px) {
             body { font-size: 1rem; } /* база на мобиле 1rem */
-            h2.section-title { font-size: 2.5rem !important; }   /* 1 * 1.6 * 1.6 ≈ 2.56 */
-            h3, .case-section h3, .project-item h3 { font-size: 1.6rem !important; } /* 1 * 1.6 */
+            h2.section-title { font-size: 2.5rem !important; }
+            h3, .case-section h3, .project-item h3 { font-size: 1.6rem !important; }
+            .case-subtitle { font-size: 0.7rem !important; }
             
             .header {
                 display: flex;
                 flex-direction: column;
                 text-align: center;
+                align-items: center; /* центрирование по горизонтали */
                 padding-bottom: 3rem;
                 padding-left: 1rem;
-                padding-right: 1.5rem;
+                padding-right: 1rem;
             }
             .photo-cell {
                 display: flex;
@@ -397,7 +405,7 @@
                 grid-template-columns: 1fr !important;
                 gap: 1rem;
             }
-            /* Порядок пунктов в "Запускал кампании" как на десктопе (по столбцам) */
+            /* Порядок пунктов в "Запускал кампании" как на десктопе */
             .features-grid {
                 display: flex;
                 flex-direction: column;
@@ -411,28 +419,32 @@
             .features-grid .feature-item:nth-child(6) { order: 7; }
             .features-grid .feature-item:nth-child(8) { order: 8; }
 
+            /* Убираем вертикальные линии на мобиле, выравниваем отступы */
             .project-item::after { display: none; }
-            .project-item:nth-child(2n) { padding-left: 1.3rem; }
-            /* Выравниваем заголовки лендингов по левому краю как у h2 */
+            .project-item {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            .project-item:nth-child(2n) { padding-left: 1rem !important; }
             .project-item h3 {
-                margin-left: -1rem;
-                padding-left: 1rem;
+                margin-left: 0;
+                padding-left: 0;
             }
 
-            .case-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .case-left, .case-right {
-                height: auto;
-                gap: 1rem;
-            }
+            /* Эксперт и Посев в ряд на мобиле */
             .case-row {
-                flex-direction: column !important;
+                flex-direction: row !important;
                 gap: 1rem;
+                align-items: stretch;
             }
             .case-row .img-placeholder {
-                aspect-ratio: auto;
+                flex: 1;
+                aspect-ratio: 2 / 3; /* сохраняем вертикальную пропорцию */
+            }
+            /* Видео Слободы – вертикальное, не горизонтальное */
+            .case-right .img-vertical-full {
+                aspect-ratio: 2 / 3 !important;
+                width: 100%;
             }
             .video-wide {
                 width: 100%;
@@ -464,12 +476,17 @@
             .project-text br {
                 display: none;
             }
+            /* Отступ под последним элементом в блоке "ещё" — увеличиваем в 3 раза */
+            .project-col:last-child .project-row:last-child {
+                margin-bottom: 3rem;
+            }
             .portfolio-section {
                 padding-top: 2rem;
             }
+            /* Подвал: отступ снизу увеличен в 2 раза */
             .footer {
                 text-align: center;
-                padding: 2rem 1.5rem 2.5rem;
+                padding: 2rem 1.5rem 5rem !important; /* было 2.5rem, стало 5rem */
             }
             .footer-title {
                 text-align: center;
@@ -543,7 +560,8 @@
                     <div class="img-placeholder img-horizontal"><a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fbd1d6bsloboda_2.jpg" alt="Горизонтальная 1" class="case-img"></a></div>
                     <div class="img-placeholder img-horizontal"><a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fdb2ee6sloboda_7.jpg" alt="Горизонтальная 2" class="case-img"></a></div>
                     <div class="case-row">
-                        <div class="img-placeholder img-4-5"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/06/05/6affd8e1afe882a95e4eb15373c4c576.png" alt="Эксперт" class="case-img"></a></div>
+                        <!-- Эксперт – новая картинка -->
+                        <div class="img-placeholder img-4-5"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/06/05/32e6f814d889291b2fa259d2a217f615.png" alt="Эксперт" class="case-img"></a></div>
                         <div class="img-placeholder img-vertical-full"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f78abcbe584a35211ddb98d08784a3c1.png" alt="Посев" class="case-img"></a></div>
                     </div>
                 </div>
@@ -624,12 +642,12 @@
                 </div>
             </div>
             <div class="images-grid-2col">
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Выставка Министерства туризма<br>Краснодарского края</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Сервис помощи автовладельцам<br>«Мобил-Ассистанс»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Ремонт топливной аппаратуры<br>«БелАвтоДизель»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Система управления<br class="mobile-br"> гостиничным бизнесом «1С:Отель»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Программа финансирования бизнеса «Фрэш Капитал»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Фонд «Крипто Трэйдинг Фанд»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Выставка Министерства туризма Кубани</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Сервис помощи автовладельцам</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Ремонт топливной аппаратуры</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Система управления гостиничным бизнесом</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Программа финансирования бизнеса</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Криптовалютный фонд</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img"></a></div></div>
             </div>
         </section>
 
@@ -641,7 +659,7 @@
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/52d0f5818050447ac2e98e708b5cb1cb.png" alt="Статьи про агротуризм"></a></span><span class="project-text">Статьи про<br> агротуризм<br> <a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" class="project-link" target="_blank">в&nbsp;АиФ и&nbsp;КП</a></span></div>
                     <div class="project-row"><span class="project-thumb"><a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/de504a220661a6e27114a4529b71527c.png" alt="Статьи для сочинского портала"></a></span><span class="project-text">Статьи для<br> <a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" class="project-link" target="_blank">сочинского портала</a></span></div>
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/32d023ef6287ddf0e653fd589f0cdb4b.png" alt="Статьи про презентации"></a></span><span class="project-text">Статьи про<br> <a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" class="project-link" target="_blank">презентации</a></span></div>
-                    <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про блоки"></a></span><span class="project-text">Статьи про<br> керамзитобетонные блоки</span></div>
+                    <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про блоки"></a></span><span class="project-text">Статьи про<br> <a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" class="project-link" target="_blank">керамзито-<br>бетонные блоки</a></span></div>
                 </div>
                 <div class="project-col">
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/54710f693fa13af194e0f8068fb7bd70.png" alt="Буклет про потолки"></a></span><span class="project-text"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" class="project-link" target="_blank">Буклет про<br> натяжные потолки</a></span></div>
