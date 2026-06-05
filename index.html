@@ -2,32 +2,491 @@
 <html lang="ru">
 <head>
     <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/2/27/Red_square.svg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Игорь Шарков">
     <meta property="og:description" content="Редактор, координатор контент-проектов">
     <meta property="og:image" content="https://allwebs.ru/images/2026/05/28/5341c958c9cbe616b5bfd0a71316301f.jpg=w1860-h900?auditContext=prefetch">
     <meta property="og:url" content="https://iggyshark.github.io/portfolio/">
     <meta charset="UTF-8">
     <title>Шарков Портфолио</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Критические стили для мгновенного применения (без красной вспышки) -->
     <style>
-        /* Принудительно убираем любой фон у контейнера */
-        .container {
-            background: none !important;
-        }
-        /* Красный фон только у шапки и подвала */
-        .header, .footer {
-            background-color: #D42C2C !important;
-        }
-        /* Все остальные блоки белые */
-        .about-block, .section {
-            background-color: #ffffff !important;
-        }
-        /* Базовые настройки, чтобы не было скачка */
-        body {
+        /* ГЛОБАЛЬНЫЕ СТИЛИ (без красного фона у контейнера) */
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            background: #f4f7fa;
+            color: #1e2a3a;
             padding: 2rem 1rem;
+            font-size: 1.2rem; /* базовый размер */
+        }
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        /* Красный только у шапки и подвала */
+        .header, .footer {
+            background-color: #D42C2C;
+            color: white;
+        }
+        .about-block, .section {
+            background-color: #ffffff;
+        }
+        /* Шрифты */
+        h2.section-title {
+            font-size: 3rem;   /* 1.2 * 1.6 * 1.6 = 3.072, округлил */
+            font-weight: bold;
+            margin: 0 0 0.96rem;
+            color: #D42C2C;
+            border-left: 4px solid #D42C2C;
+            padding-left: 0.75rem;
+            margin-left: -1.8rem;
+            padding-left: 1.8rem;
+            line-height: 1.2;
+        }
+        h3, .case-section h3, .project-item h3 {
+            font-size: 1.92rem;  /* 1.2 * 1.6 */
+            margin: 0.4rem 0 0.1rem;
+            color: #D42C2C;
+        }
+        .case-heading-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .case-heading-link:hover {
+            text-decoration: underline;
+        }
+        .about-text, .feature-item, .project-row, .case-text p, .case-summary, .case-subtitle, .intro-text, .lead-text, li, p {
+            font-size: 1rem; /* относительно body 1.2rem, но для удобства задаём em */
+        }
+        /* Утилиты */
+        ul {
+            list-style-type: none !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+        li {
+            margin-bottom: 0.3rem;
+            line-height: 1.5;
+        }
+        a:visited,
+        .about-link:visited,
+        .project-link:visited,
+        .email-link:visited {
+            color: #800080;
+            border-bottom-color: #800080;
+        }
+        .about-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid #2d3748;
+        }
+        /* Шапка */
+        .header {
+            padding: 3rem 2.2rem 4rem 1.8rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 220px auto;
+            gap: 1rem 2rem;
+            border-radius: 24px 24px 0 0;
+        }
+        .name-cell { grid-column: 1 / 2; grid-row: 1 / 2; }
+        .name {
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 0 -0.2em;
+            line-height: 1;
+            color: white;
+        }
+        .name span { display: block; font-size: 130px; line-height: 0.95; }
+        .name span:first-child { margin-top: -23px; }
+        .name span:last-child { margin-bottom: -7px; }
+        .photo-cell { grid-column: 2 / 3; grid-row: 1 / 2; justify-self: end; }
+        .photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 14px solid white;
+            background: #cbd5e1;
+            box-sizing: content-box;
+            margin-top: -14px;
+        }
+        .job-cell { grid-column: 1 / 2; grid-row: 2 / 3; align-self: end; }
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.3;
+            transform: translateY(32px);
+            color: white;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: white;
+            margin: 0.3rem 0 0;
+            transform: translateY(32px);
+        }
+        .contacts-cell { grid-column: 2 / 3; grid-row: 2 / 3; align-self: end; display: flex; justify-content: flex-end; }
+        .contacts {
+            display: flex;
+            align-items: flex-end;
+            gap: 1.2rem;
+            transform: translateY(30px);
+        }
+        .contacts a { color: white; text-decoration: none; display: inline-flex; align-items: center; gap: 0.2rem; }
+        .email-link {
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            white-space: nowrap;
+        }
+        .social-icon { width: 48px; height: 48px; object-fit: contain; }
+        .contacts a:has(.social-icon) { border-bottom: none; }
+
+        /* О себе */
+        .about-block {
+            padding: 2rem 2.2rem 1rem 1.8rem;
+        }
+        .about-text {
+            margin-bottom: 1rem;
+        }
+
+        /* Секции */
+        .section {
+            padding: 2rem 2.2rem 2.5rem 1.8rem;
+            border-bottom: 3px solid #e2e8f0;
+        }
+        .section:first-of-type { padding-top: 1.5rem; padding-bottom: 1.25rem; border-bottom: none; }
+        .section:last-of-type { border-bottom: none; }
+        .first-case { padding-top: 0.25rem; }
+        .case-section { padding-top: 1rem; padding-bottom: 3.5rem; }
+
+        .case-sentence { display: block; text-indent: 1em; margin-bottom: 0.4rem; }
+        .intro-text, .lead-text { margin-bottom: 0.5rem; color: #1e2a3a; }
+        .case-summary { margin: 0.25rem 0 0.75rem; color: #1e2a3a; }
+        .case-subtitle { color: #6b7280; margin: 0 0 0.5rem; }
+
+        /* Сетки */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 4rem;
+            margin: 1rem 0;
+        }
+        .feature-item {
+            display: flex;
+            align-items: baseline;
+            line-height: 1.5;
+            color: #2d3748;
+        }
+        .feature-icon { flex-shrink: 0; width: 1.8rem; font-size: 1.4rem; text-align: center; margin-right: 0.5rem; }
+        .feature-text { flex: 1; }
+
+        .two-col-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        .list-col { display: flex; flex-direction: column; gap: 0.8rem; }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+        .case-left, .case-right {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 1.5rem;
+        }
+        .case-left p { margin: 0.2rem 0; }
+        .case-left > :last-child, .case-right > :last-child { margin-top: auto; }
+        .case-right > :first-child { margin-top: 0.5rem; }
+        .case-full-width { margin-top: 1.5rem; width: calc(100% - 3rem); margin-left: 1.5rem; margin-right: 1.5rem; background: white; }
+        .video-wide { margin-top: 1.5rem; margin-left: -5%; margin-right: -5%; width: 110%; background: white; }
+
+        .img-placeholder { background: #fff; border-radius: 8px; overflow: hidden; }
+        .img-3-5 { aspect-ratio: 3 / 5; }
+        .img-horizontal { aspect-ratio: 16 / 9; }
+        .img-vertical-full { aspect-ratio: 2 / 3; }
+        .img-4-5 { aspect-ratio: 4 / 5; }
+        .img-5-4 { aspect-ratio: 5 / 4; }
+        .img-wide-horizontal { aspect-ratio: 14 / 3; }
+        .img-square { aspect-ratio: 1 / 1; }
+
+        .case-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .case-row {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+            width: 100%;
+        }
+        .case-row > * { flex: 1; min-width: 0; }
+        .grow { flex-grow: 1; min-height: 0; aspect-ratio: unset; }
+
+        /* Десктопные корректировки */
+        @media (min-width: 641px) {
+            /* Эксперт и Посев одинакового размера */
+            .case-row .img-4-5, .case-row .img-vertical-full {
+                flex: 1;
+            }
+            /* Металлоинвест: правую картинку уменьшаем на 3% и прижимаем к правому краю */
+            .metalloinvest-right {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .metalloinvest-right .case-img {
+                width: 97%;
+                margin-left: auto;
+            }
+            /* ЦСМ: прижимаем верхнюю картинку к нижней в правой колонке */
+            .medical .case-right {
+                gap: 0;
+                justify-content: flex-start;
+            }
+            /* Убираем отступ под блоком посадочных, чтобы сократить разрыв перед "Что я ещё писал" */
+            .portfolio-section {
+                padding-bottom: 1rem;
+            }
+        }
+
+        /* Портфолио (посадочные) */
+        .portfolio-section { padding-top: 3rem; background: white; border-bottom: none; }
+        .images-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 1.5rem -2.2rem 0 -1.8rem;
+        }
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border-bottom: 3px solid #e2e8f0;
+            padding: 1.5rem 2.2rem 1.5rem 1.8rem;
+        }
+        .project-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 1.5rem;
+            bottom: 0;
+            width: 3px;
+            background: #e2e8f0;
+        }
+        .project-item:nth-child(2n)::after { display: none; }
+        .project-item:nth-child(2n) { padding-left: 1.62rem; }
+        .project-item h3 { margin-top: 0; margin-bottom: 1rem; line-height: 1.3; }
+        .project-item h3 a { text-decoration: none; color: inherit; }
+        .placeholder-vertical { aspect-ratio: 2 / 3; background: #fff; border-radius: 8px; }
+
+        /* "Что ещё писал" (три колонки) */
+        .projects-table.three-cols {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 1.5rem 0 0;
+            align-items: start;
+        }
+        .project-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            min-width: 0;
+            word-break: break-word;
+        }
+        .project-row {
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+            color: #2d3748;
+        }
+        .project-thumb {
+            width: 160px;
+            height: 120px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .project-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .project-text { flex: 1; line-height: 1.3; }
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        /* Подвал */
+        .footer {
+            padding: 2rem 2.2rem 5rem 1.8rem;
+            border-radius: 0 0 24px 24px;
+        }
+        .footer-title { font-size: 1.5rem; font-weight: bold; margin: 0 0 0.7rem; color: white; }
+        .footer-contacts { display: flex; flex-direction: row; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-logos { display: flex; gap: 1.5rem; }
+        .footer-logos .social-icon { width: 64px; height: 64px; }
+
+        /* ========== МОБИЛЬНАЯ ВЁРСТКА (пропорциональные шрифты) ========== */
+        @media (max-width: 750px) {
+            body { font-size: 1rem; } /* база на мобиле 1rem */
+            h2.section-title { font-size: 2.5rem !important; }   /* 1 * 1.6 * 1.6 ≈ 2.56 */
+            h3, .case-section h3, .project-item h3 { font-size: 1.6rem !important; } /* 1 * 1.6 */
+            
+            .header {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding-bottom: 3rem;
+                padding-left: 1rem;
+                padding-right: 1.5rem;
+            }
+            .photo-cell {
+                display: flex;
+                justify-content: center;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+            .contacts { justify-content: center; }
+            .name { height: auto; display: block; text-align: center; margin-left: 0; }
+            .name span { font-size: 3.5rem; line-height: 1.2; }
+            .job-cell { align-self: auto; }
+            .contacts-cell { align-self: auto; margin-top: 1.5rem; }
+            .tagline, .job-title { transform: none; margin-left: 0; }
+            .job-title { margin-bottom: 1rem; font-size: 1.3rem; }
+            .contacts { flex-wrap: wrap; justify-content: center; transform: none; }
+            .email-link { display: block; width: fit-content; margin: 0.2rem auto 0; border-bottom: 1px solid rgba(255,255,255,0.5); text-align: center; white-space: normal; }
+            .social-icon { width: 64px; height: 64px; }
+            .case-right > :first-child { margin-top: 0; }
+        }
+
+        @media (max-width: 640px) {
+            .section {
+                padding: 1.5rem 1.3rem 2rem 1rem;
+            }
+            .section:first-of-type {
+                padding-top: 2rem;
+            }
+            .about-block {
+                padding: 1.5rem 1.3rem;
+            }
+            h2.section-title {
+                margin-left: -1rem;
+                padding-left: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            /* Отключаем многоколоночные сетки на мобиле */
+            .features-grid,
+            .two-col-list,
+            .images-grid-2col,
+            .projects-table.three-cols {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            /* Порядок пунктов в "Запускал кампании" как на десктопе (по столбцам) */
+            .features-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            .features-grid .feature-item:nth-child(1) { order: 1; }
+            .features-grid .feature-item:nth-child(3) { order: 2; }
+            .features-grid .feature-item:nth-child(5) { order: 3; }
+            .features-grid .feature-item:nth-child(7) { order: 4; }
+            .features-grid .feature-item:nth-child(2) { order: 5; }
+            .features-grid .feature-item:nth-child(4) { order: 6; }
+            .features-grid .feature-item:nth-child(6) { order: 7; }
+            .features-grid .feature-item:nth-child(8) { order: 8; }
+
+            .project-item::after { display: none; }
+            .project-item:nth-child(2n) { padding-left: 1.3rem; }
+            /* Выравниваем заголовки лендингов по левому краю как у h2 */
+            .project-item h3 {
+                margin-left: -1rem;
+                padding-left: 1rem;
+            }
+
+            .case-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .case-left, .case-right {
+                height: auto;
+                gap: 1rem;
+            }
+            .case-row {
+                flex-direction: column !important;
+                gap: 1rem;
+            }
+            .case-row .img-placeholder {
+                aspect-ratio: auto;
+            }
+            .video-wide {
+                width: 100%;
+                margin: 1rem 0 0;
+            }
+            .video-wide .img-wide-horizontal {
+                aspect-ratio: 16 / 6;
+            }
+            .medical .case-right {
+                gap: 1rem; /* возвращаем отступ на мобиле, чтобы картинки не слипались */
+            }
+
+            /* "Что ещё писал" на мобиле — одна колонка */
+            .project-row {
+                flex-direction: column;
+                align-items: flex-start;
+                line-height: 1.3;
+            }
+            .project-col {
+                gap: 2rem;
+            }
+            .project-thumb {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 4 / 3;
+            }
+            .project-text br {
+                display: none;
+            }
+            .portfolio-section {
+                padding-top: 2rem;
+            }
+            .footer {
+                text-align: center;
+                padding: 2rem 1.5rem 2.5rem;
+            }
+            .footer-title {
+                text-align: center;
+            }
+            .footer-contacts {
+                justify-content: center;
+                align-items: center;
+            }
+            .footer-logos {
+                justify-content: center;
+                margin: 0.5rem 0 0.1rem;
+            }
+        }
+
+        .mobile-br { display: none; }
+        @media (max-width: 750px) {
+            .mobile-br { display: inline; }
         }
     </style>
 </head>
@@ -84,8 +543,8 @@
                     <div class="img-placeholder img-horizontal"><a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fbd1d6bsloboda_2.jpg" alt="Горизонтальная 1" class="case-img"></a></div>
                     <div class="img-placeholder img-horizontal"><a href="https://radar-online.ru/all-works/slobodasmm" target="_blank"><img src="https://radar-online.ru/cockpit/storage/uploads/2021/10/11/616403fdb2ee6sloboda_7.jpg" alt="Горизонтальная 2" class="case-img"></a></div>
                     <div class="case-row">
-                        <div class="img-placeholder img-same-size"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/06/05/32e6f814d889291b2fa259d2a217f615.png" alt="Эксперт" class="case-img"></a></div>
-                        <div class="img-placeholder img-same-size"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f78abcbe584a35211ddb98d08784a3c1.png" alt="Посев" class="case-img"></a></div>
+                        <div class="img-placeholder img-4-5"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/06/05/6affd8e1afe882a95e4eb15373c4c576.png" alt="Эксперт" class="case-img"></a></div>
+                        <div class="img-placeholder img-vertical-full"><a href="https://t.me/sloboda_russia" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f78abcbe584a35211ddb98d08784a3c1.png" alt="Посев" class="case-img"></a></div>
                     </div>
                 </div>
                 <div class="case-right">
@@ -165,12 +624,12 @@
                 </div>
             </div>
             <div class="images-grid-2col">
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Выставка Министерства туризма Кубани</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Сервис помощи автовладельцам</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Ремонт топливной аппаратуры</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Система управления гостиничным бизнесом</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Программа финансирования бизнеса</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img"></a></div></div>
-                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Криптовалютный фонд</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Выставка Министерства туризма<br>Краснодарского края</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/6b/7ae3c179273874069f903a80b3ff176b.png" alt="Вертикальная 1" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Сервис помощи автовладельцам<br>«Мобил-Ассистанс»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/66/c17f5b70dde2b12d8360ae6d14663d66.png" alt="Вертикальная 2" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Ремонт топливной аппаратуры<br>«БелАвтоДизель»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/aa/a16c1f2671ddeb72f45646ad48fe67aa.png" alt="Вертикальная 3" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Система управления<br class="mobile-br"> гостиничным бизнесом «1С:Отель»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/ca/53e7b07048d8a2559d3660892dc0a4ca.png" alt="Вертикальная 4" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Программа финансирования бизнеса «Фрэш Капитал»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/7b/91f4f972bf95dca4cd9d1bc9cd0d6b7b.png" alt="Вертикальная 5" class="case-img"></a></div></div>
+                <div class="project-item"><h3><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank">Фонд «Крипто Трэйдинг Фанд»</a></h3><div class="img-placeholder placeholder-vertical"><a href="https://drive.google.com/drive/folders/1MjNGKT5N8y5mZp1IQEA9c4V5tT-koUCE?usp=sharing" target="_blank"><img src="https://i127.fastpic.org/big/2026/0525/88/7f95b6d968c510aaf80cf2368f701b88.png" alt="Вертикальная 6" class="case-img"></a></div></div>
             </div>
         </section>
 
@@ -182,7 +641,7 @@
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/52d0f5818050447ac2e98e708b5cb1cb.png" alt="Статьи про агротуризм"></a></span><span class="project-text">Статьи про<br> агротуризм<br> <a href="https://drive.google.com/drive/folders/15480za8D0j9kmYNBJ_o3x5ygjPkUu8c1?usp=sharing" class="project-link" target="_blank">в&nbsp;АиФ и&nbsp;КП</a></span></div>
                     <div class="project-row"><span class="project-thumb"><a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/de504a220661a6e27114a4529b71527c.png" alt="Статьи для сочинского портала"></a></span><span class="project-text">Статьи для<br> <a href="https://docs.google.com/document/d/14S232GM8rasg53oapNeWoX857eNaC7DCvdsWSQFmf8M/edit?usp=sharing" class="project-link" target="_blank">сочинского портала</a></span></div>
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/32d023ef6287ddf0e653fd589f0cdb4b.png" alt="Статьи про презентации"></a></span><span class="project-text">Статьи про<br> <a href="https://drive.google.com/drive/folders/15HYq4MEqtPIBU7km4bXD3pByRcvWJKk0?usp=sharing" class="project-link" target="_blank">презентации</a></span></div>
-                    <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про блоки"></a></span><span class="project-text">Статьи про<br> <a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" class="project-link" target="_blank">керамзитобетонные блоки</a></span></div>
+                    <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/0B57sx9Pb5THOa2RqeGVya0RzOUk?resourcekey=0-wGfFp48YoPESaKGz6kz29g&usp=drive_link" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/0d19f05e057a4987440d4128fb67c20d.png" alt="Статьи про блоки"></a></span><span class="project-text">Статьи про<br> керамзитобетонные блоки</span></div>
                 </div>
                 <div class="project-col">
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/54710f693fa13af194e0f8068fb7bd70.png" alt="Буклет про потолки"></a></span><span class="project-text"><a href="https://drive.google.com/file/d/1QJxR4T-VtxRMSUG67zD-3b3tvPscBgha/view?usp=sharing" class="project-link" target="_blank">Буклет про<br> натяжные потолки</a></span></div>
@@ -194,7 +653,7 @@
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/f091acc18df266f25d2a31dee531d286.png" alt="Сценарии для Лайм ХДТВ"></a></span><span class="project-text">Сценарии видео<br> для приложения<br> <a href="https://drive.google.com/drive/folders/1OOT0GHQiznJM_67fxHZ1fKvPAFbg4LWn?usp=sharing" class="project-link" target="_blank">Лайм ХДТВ</a></span></div>
                     <div class="project-row"><span class="project-thumb"><img src="https://allwebs.ru/images/2026/06/04/a270179a88e503c9a26aa8c1c3c1b0a3.png" alt="Интервью для лавки"></span><span class="project-text">Серия <a href="https://vk.com/@checomics" class="project-link" target="_blank">интервью для книжной лавки</a></span></div>
                     <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/drive/folders/1Ul1ijaxi-yRsgpFYmhGiXfHBFib7GVBY?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/2fc325df1acb57cd3696b1b71dc371f9.png" alt="Контент-планы Милк Дринк"></a></span><span class="project-text"><a href="https://drive.google.com/drive/folders/1Ul1ijaxi-yRsgpFYmhGiXfHBFib7GVBY?usp=sharing" class="project-link" target="_blank">Контент-планы и посты для Милк Дринк</a></span></div>
-                    <div class="project-row last-item"><span class="project-thumb"><a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/53941e5f5f7e99127e7e385871648246.png" alt="Предложение для партии"></a></span><span class="project-text">Предложение для&nbsp;<a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" class="project-link" target="_blank">партии Справедливая Россия</a></span></div>
+                    <div class="project-row"><span class="project-thumb"><a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" target="_blank"><img src="https://allwebs.ru/images/2026/05/28/53941e5f5f7e99127e7e385871648246.png" alt="Предложение для партии"></a></span><span class="project-text">Предложение для&nbsp;<a href="https://drive.google.com/file/d/1BJms91vsSnkUGzLhCYBj7CtjpmC1uTWH/view?usp=sharing" class="project-link" target="_blank">партии Справедливая Россия</a></span></div>
                 </div>
             </div>
         </section>
